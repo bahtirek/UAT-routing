@@ -11,23 +11,23 @@ import { TestCaseBtnComponent } from './test-case-btn/test-case-btn.component';
 
 @NgModule({
   declarations: [
-    /* MenuComponent,
+    MenuComponent,
     RegressionBtnComponent,
     SettingsBtnComponent,
     ExecuteBtnComponent,
     EventBtnComponent,
-    TestCaseBtnComponent */
+    TestCaseBtnComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    /* MenuComponent,
+    MenuComponent,
     RegressionBtnComponent,
     SettingsBtnComponent,
     ExecuteBtnComponent,
     EventBtnComponent,
-    TestCaseBtnComponent */
+    TestCaseBtnComponent
   ]
 })
 export class MenuModule { }
