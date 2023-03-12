@@ -8,6 +8,7 @@ import { EventsComponent } from './events/events.component';
 import { RegressionComponent } from './regression/regression.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ExecuteComponent } from './execute/execute.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,9 @@ const routes: Routes = [
       {
         path: 'execute', component: ExecuteComponent
       },
+      {
+        path: 'dashboard', component: DashboardComponent
+      },
     ] 
   }
 ];
@@ -40,6 +44,7 @@ const routes: Routes = [
     ExecuteComponent,
     RegressionComponent,
     SettingsComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,

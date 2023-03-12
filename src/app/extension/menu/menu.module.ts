@@ -7,6 +7,7 @@ import { ExecuteBtnComponent } from './execute-btn/execute-btn.component';
 import { EventBtnComponent } from './event-btn/event-btn.component';
 import { TestCaseBtnComponent } from './test-case-btn/test-case-btn.component';
 import { RouterModule } from '@angular/router';
+import { DashboardBtnComponent } from './dashboard-btn/dashboard-btn.component';
 
 
 
@@ -17,7 +18,8 @@ import { RouterModule } from '@angular/router';
     SettingsBtnComponent,
     ExecuteBtnComponent,
     EventBtnComponent,
-    TestCaseBtnComponent
+    TestCaseBtnComponent,
+    DashboardBtnComponent
   ],
   imports: [
     CommonModule, 

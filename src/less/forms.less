@@ -1,164 +1,48 @@
-@import "variables.less";
+input,
+optgroup,
+select,
+textarea {
+  margin: 0; 
+  font-family: inherit;
+  letter-spacing: inherit;
+}
 
-.ui-br-ext-extension {
-    .ui-br-ext-form-container {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-        color: #707070;
-        position: relative;
-        column-gap: 16px;
+// Remove the inner padding in Chrome and Safari on macOS
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
 
-        &.ui-br-ext-checkbox {
-            align-items: center;
+// Remove the inner padding in Chrome and Safari on macOS
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
 
-            input[type=checkbox] {
-                height: 18px;
-                width: 18px;
-                margin: 3px 10px 3px 4px;
-                cursor: pointer;
-            }
+// Commons styles
+input,
+select,
+textarea {
+  border: 1px solid var(--form-element-border-color);
+  padding: 7px 10px;
+  border-radius: 5px;
+  outline: none;
+  background-color: var(--background-color);
+  box-shadow: var(--box-shadow);
+  color: var(--color);
+  width: 100%;
+  box-sizing: border-box;
+}
 
-            label {
-                font-size: 15px;
-                font-weight: normal !important;
-                cursor: pointer;
-                margin: 0;
-                padding: 0;
-            }
+label {
+  position: absolute;
+  top: -7px;
+  left: 7px;
+  padding: 0px 3px;
+  background-color: #ffffff;
+  font-size: 11px;
+  font-weight: normal !important;
+}
 
-            &:disabled {
-                cursor: not-allowed;
-            }
-
-            .ui-br-ext-disclaimer {
-                font-size: 11px;
-                color: red;
-                margin-left: 31px;
-                width: 100%;
-                box-sizing: border-box;
-            }
-        }
-
-        &.ui-br-ext-text,
-        &.ui-br-ext-textarea {
-            margin-bottom: 16px;
-
-            input[type=text],
-            input[type=email],
-            input[type=date],
-            input[type=password],
-            select,
-            textarea {
-                font-family: arial !important;
-                width: 100%;
-                padding: 6px 10px !important;
-                border: 1px solid #c4c8c9 !important;
-                border-radius: 4px !important;
-                white-space: pre-wrap !important;
-                box-sizing: border-box !important;
-                font-size: 14px!important;
-                color: #404040!important;
-                height: auto;
-                outline: none !important;
-                display: block!important;
-                box-shadow: none!important;
-
-                &:focus,
-                &:active {
-                    border-color: @primary-color !important;
-                }
-            }
-
-            input[type=text]::-webkit-input-placeholder { 
-                font-size: 11px;
-            } 
-
-            label {
-                position: absolute;
-                top: -8px;
-                left: 7px;
-                padding: 0px 3px;
-                background-color: #ffffff;
-                font-size: 11px;
-                font-weight: normal !important;
-            }
-        }
-        
-        .ui-br-ext-search-icon {
-            position: absolute;
-            right: 6px;
-            top: 5px;
-            svg {
-                height: 20px;
-            }
-        }
-
-        .ui-br-ext-search-results {
-            width: 100%;
-            padding-top: 10px;
-            position: relative;
-            ul {
-                margin: 0;
-                padding: 0;
-                position: absolute;
-                background-color: #ffffff;
-                top: 4px;
-                z-index: 2;
-                width: 100%;
-                box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
-                border-radius: 3px;
-                li {
-                    padding: 0 10px;
-                    display: flex;
-                    align-items: center;
-                    height: 34px;
-                    justify-content: space-between;
-                    &:hover, &.ui-br-ext-hovered {
-                        background-color: #f7f7f7;
-                        .ui-br-ext-module-icons span {
-                            display: flex;
-                        }
-                    }
-                
-                    .ui-br-ext-module-label:not(.ui-br-ext-no-hover):hover {
-                        cursor: pointer;
-                        text-shadow: .25px 0px .1px,
-                                    -.25px 0px .1px;
-                    }
-
-                    .ui-br-ext-module-icons {
-                        display: flex;
-                        width: 30px;
-                        cursor: pointer;
-                        span {
-                            margin: 0 5px;
-                            align-items: center;
-                            //display: flex;
-                            display: none;
-                            &:hover {
-                                svg {
-                                    stroke: #00ad55;                                       
-                                }
-                                &.trash-icon svg{
-                                    stroke: #d02525;
-                                }
-
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    .ui-br-ext-message {
-        font-size: 10px;
-        max-width: 250px;
-        position: absolute;
-        bottom: -13px;
-        left: 10px;
-        display: block;
-        color: red;
-    }
+.form-container {
+  position: relative;
+  width: 100%;
 }
