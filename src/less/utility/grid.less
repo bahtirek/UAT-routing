@@ -1,0 +1,79 @@
+.ui-br-ext-extension {
+    .ui-br-ext-width-full {
+        width: 100% !important;
+    }
+    .ui-br-ext-width-initial {
+        width: initial !important;
+    }
+    @media (min-width: 768px) {
+        .ui-br-ext-width-half {
+            width: 100%;
+            max-width: 50% !important;
+        }
+        .ui-br-ext-width-33 {
+            width: 100%;
+            max-width: 33% !important;
+        }
+        .ui-br-ext-width-25 {
+            width: 100%;
+            max-width: 25% !important;
+        }
+    
+        .ui-br-ext-width-max7 {
+            width: 100%;
+            max-width: 700px !important;
+        }
+    }
+
+    .ui-br-ext-margin-auto {
+        margin-inline: auto;
+    }
+
+    .ui-br-ext-flex {
+        display: flex;
+    }
+    .ui-br-ext-flex-inline {
+        display: inline-flex;
+    }
+
+    .ui-br-ext-wrap {
+        flex-wrap: wrap;
+    }
+    .ui-br-ext-nowrap {
+        flex-wrap: nowrap;
+    }
+
+    .ui-br-ext-justify {
+        &-center {
+            justify-content: center;
+        }
+        &-end {
+            justify-content: end;
+        }
+        &-start {
+            justify-content: start;
+        }
+        &-between {
+            justify-content: space-between;
+        }
+    }
+    .ui-br-ext-align {
+        &-center {
+            align-items: center;
+        }
+        &-end {
+            align-items: flex-end;
+        }
+        &-start {
+            align-items: flex-start;
+        }
+    }
+
+    .ui-br-ext-gap-12 {
+        gap: 12px;
+    }
+
+    .ui-br-ext-create-case .ui-br-ext-flex.ui-br-ext-justify-end {
+        min-height: 30px;
+    }
+}
