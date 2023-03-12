@@ -1,0 +1,3 @@
+ng g module extension/xx --module extension/extension.module
+ng g c extension/xx --module extension/extension.module
+
