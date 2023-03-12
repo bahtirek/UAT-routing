@@ -4,6 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { ExtensionComponent } from './extension.component';
 import { MenuModule } from './menu/menu.module';
 import { TestCaseComponent } from './test-case/test-case.component';
+import { EventsComponent } from './events/events.component';
+import { RegressionComponent } from './regression/regression.component';
+import { SettingsComponent } from './settings/settings.component';
+import { ExecuteComponent } from './execute/execute.component';
 
 
 const routes: Routes = [
@@ -12,7 +16,19 @@ const routes: Routes = [
     children: [
       {
         path: 'test-case', component: TestCaseComponent
-      }
+      },
+      {
+        path: 'events', component: EventsComponent 
+      },
+      {
+        path: 'regression', component: RegressionComponent
+      },
+      {
+        path: 'settings', component: SettingsComponent
+      },
+      {
+        path: 'execute', component: ExecuteComponent
+      },
     ] 
   }
 ];
@@ -20,6 +36,10 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     ExtensionComponent,
+    EventsComponent,
+    ExecuteComponent,
+    RegressionComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,

@@ -41,7 +41,7 @@
     }
   }
 
-  &.ui-br-ext-active {
+  &.active {
     svg {
       color: #00dd55;
       stroke: #00dd55;
@@ -77,53 +77,5 @@
     bottom: 0;
     left: 0;
     right: 0;
-  }
-}
-
-.ui-br-ext-extension {
-  .ui-br-ext-selector-component {
-    display: flex;
-    align-items: center;
-
-    .ui-br-ext-operator {}
-
-    .ui-br-ext-svg-icon {
-      width: 48px;
-      height: 48px;
-
-      svg {
-        width: 48px;
-        height: 48px;
-      }
-
-      &:hover svg {
-        fill: #00dd55;
-      }
-    }
-
-    span {
-      line-height: 24px;
-
-      &.ui-br-ext-hint {
-        font-size: 12px;
-        color: #404040;
-        padding-left: 20px;
-      }
-    }
-
-    div {
-      display: flex;
-      align-items: center;
-    }
-
-    .ui-br-ext-btn {
-      margin: -2px 0 0 0 !important;
-      height: 28px !important;
-      padding: 4px 12px !important;
-    }
-
-    .ui-br-ext-textarea {
-      margin: 0 10px 0 30px !important;
-    }
   }
 }

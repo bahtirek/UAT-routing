@@ -6,6 +6,7 @@ import { SettingsBtnComponent } from './settings-btn/settings-btn.component';
 import { ExecuteBtnComponent } from './execute-btn/execute-btn.component';
 import { EventBtnComponent } from './event-btn/event-btn.component';
 import { TestCaseBtnComponent } from './test-case-btn/test-case-btn.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -19,7 +20,8 @@ import { TestCaseBtnComponent } from './test-case-btn/test-case-btn.component';
     TestCaseBtnComponent
   ],
   imports: [
-    CommonModule
+    CommonModule, 
+    RouterModule
   ],
   exports: [
     MenuComponent,
