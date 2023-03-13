@@ -1,17 +1,13 @@
 <div class="main-section container">
   <div class="header">
     <h2>Test Case</h2>
-    <!-- <div class="form-container">
-      <input type="text" name="search" id="search">
-      <label for="search">Search</label>
-    </div> -->
     <div class="link-group">
-      <a href="#">Create</a>
+      <a [routerLink]="['create']" [skipLocationChange]="true" routerLinkActive="active">Create</a>
       <a href="#">Search</a>
     </div>
   </div>
   <div class="content">
     
-
+<router-outlet></router-outlet>
   </div>
 </div>

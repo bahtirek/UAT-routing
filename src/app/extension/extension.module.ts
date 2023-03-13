@@ -3,20 +3,23 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ExtensionComponent } from './extension.component';
 import { MenuModule } from './menu/menu.module';
-import { TestCaseComponent } from './test-case/test-case.component';
 import { EventsComponent } from './events/events.component';
 import { RegressionComponent } from './regression/regression.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ExecuteComponent } from './execute/execute.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { TestCaseModule } from './test-case/test-case.module';
+import { TestCaseComponent } from './test-case/test-case.component';
 
 
 const routes: Routes = [
   { 
     path: '', component: ExtensionComponent,
     children: [
+      
       {
-        path: 'test-case', component: TestCaseComponent
+        path: 'test-case', loadChildren: () => import('./test-case/test-case.module').then(m => m.TestCaseModule)
+        //path: 'test-case', component: TestCaseComponent
       },
       {
         path: 'events', component: EventsComponent 
@@ -49,7 +52,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     MenuModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    //TestCaseModule
   ],
 })
 export class ExtensionModule { }

@@ -27,9 +27,9 @@ declare global {
     AuthModule,
     FormsModule,
     RouterModule.forRoot([
+      { path: '', redirectTo: '/auth', pathMatch: 'full' },
       { path: 'extension', loadChildren: () => import('./extension/extension.module').then(m => m.ExtensionModule) },
-      { path: 'extension', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-      { path: '', redirectTo: '/extension', pathMatch: 'full' },
+      { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
     ])
   ],
   providers: [],
