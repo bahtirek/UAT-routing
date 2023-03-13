@@ -5,9 +5,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { AuthComponent } from './auth/auth.component';
 import { ExtensionModule } from './extension/extension.module';
 import { AuthModule } from './auth/auth.module';
+import { TestCaseModule } from './extension/test-case/test-case.module';
+import { SettingsModule } from './extension/settings/settings.module';
+import { RegressionModule } from './extension/regression/regression.module';
+import { ExecuteModule } from './extension/execute/execute.module';
+import { EventsModule } from './extension/events/events.module';
 
 declare global {
   interface Window {
@@ -25,7 +29,12 @@ declare global {
     ReactiveFormsModule,
     ExtensionModule,
     AuthModule,
+    TestCaseModule,
+    SettingsModule,
     FormsModule,
+    RegressionModule,
+    ExecuteModule,
+    EventsModule,
     RouterModule.forRoot([
       { path: '', redirectTo: '/auth', pathMatch: 'full' },
       { path: 'extension', loadChildren: () => import('./extension/extension.module').then(m => m.ExtensionModule) },
