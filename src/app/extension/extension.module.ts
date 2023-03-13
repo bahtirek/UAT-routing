@@ -8,9 +8,6 @@ import { RegressionComponent } from './regression/regression.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ExecuteComponent } from './execute/execute.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { TestCaseModule } from './test-case/test-case.module';
-import { TestCaseComponent } from './test-case/test-case.component';
-import { SettingsModule } from './settings/settings.module';
 
 
 const routes: Routes = [
@@ -20,19 +17,18 @@ const routes: Routes = [
       
       {
         path: 'test-case', loadChildren: () => import('./test-case/test-case.module').then(m => m.TestCaseModule)
-        //path: 'test-case', component: TestCaseComponent
       },
       {
-        path: 'events', component: EventsComponent 
+        path: 'events', loadChildren: () => import('./events/events.module').then(m => m.EventsModule) 
       },
       {
-        path: 'regression', component: RegressionComponent
+        path: 'regression', loadChildren: () => import('./regression/regression.module').then(m => m.RegressionModule) 
       },
       {
         path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
       },
       {
-        path: 'execute', component: ExecuteComponent
+        path: 'execute', loadChildren: () => import('./execute/execute.module').then(m => m.ExecuteModule)
       },
       {
         path: 'dashboard', component: DashboardComponent
@@ -54,8 +50,6 @@ const routes: Routes = [
     CommonModule,
     MenuModule,
     RouterModule.forChild(routes),
-    //SettingsModule,
-    //TestCaseModule
   ],
 })
 export class ExtensionModule { }
