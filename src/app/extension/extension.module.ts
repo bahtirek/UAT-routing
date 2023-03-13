@@ -10,6 +10,7 @@ import { ExecuteComponent } from './execute/execute.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TestCaseModule } from './test-case/test-case.module';
 import { TestCaseComponent } from './test-case/test-case.component';
+import { SettingsModule } from './settings/settings.module';
 
 
 const routes: Routes = [
@@ -28,7 +29,7 @@ const routes: Routes = [
         path: 'regression', component: RegressionComponent
       },
       {
-        path: 'settings', component: SettingsComponent
+        path: 'settings', loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule)
       },
       {
         path: 'execute', component: ExecuteComponent
@@ -53,6 +54,7 @@ const routes: Routes = [
     CommonModule,
     MenuModule,
     RouterModule.forChild(routes),
+    //SettingsModule,
     //TestCaseModule
   ],
 })
