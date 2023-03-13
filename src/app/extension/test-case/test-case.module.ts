@@ -19,9 +19,6 @@ const routes: Routes = [
       {
         path: 'create', component: CreateTestCaseComponent
       },
-      /* {
-        path: '', component: CreateTestCaseComponent
-      }, */
     ] 
   }
 ];
