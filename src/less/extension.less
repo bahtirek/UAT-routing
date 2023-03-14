@@ -1,30 +1,43 @@
 
 .main-container {
   .left-navigation {
+    height: 60px;
     width: 100%;
-    max-width: 54px;
-    background-color: #ffffff;
-    box-shadow: 5px 0 5px -5px #d9dbd8;
+    padding-bottom: 12px;
     position: fixed;
     left: 0;
+    right: 0;
     top: 0;
-    bottom: 0;
+    bottom: initial;
+    display: flex;
+    align-items: end;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 0px 3px, rgba(0, 0, 0, 0.23) 0px 0px 6px;
+    box-sizing: border-box;
+
+    h2, h3 {
+      margin: 0;
+      color: var(--primary);
+    }
+    .container {
+      padding-right: 0;
+    }
   }
   
   .main-content-wrap {
-    //padding-top: 60px;
-    padding-left: 54px;
+    padding-top: 80px;
 
   
     .header {
       height: 40px;
       background-color: #ffffff;
-      border-bottom: 1px solid var(--primary);
+      //border-bottom: 1px solid var(--primary-hover);
       display: flex;
       align-items: center;
       padding-top: 14px;
       h3, h2 {
-        width: 100%;
+        //width: 100%;
         flex-grow: 1;
       }
 
@@ -35,12 +48,13 @@
       }
     }
   
-    .container {
-      padding: 0 16px;
-      max-width: 1000px;
-      box-sizing: border-box;
-      margin-inline: auto;
-    }
+  }
+  .container {
+    padding: 0 16px;
+    max-width: 1000px;
+    box-sizing: border-box;
+    margin-inline: auto;
+    width: 100%;
   }
   
   app-extension {

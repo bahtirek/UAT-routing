@@ -2,7 +2,7 @@
 
 .nav-menu-btn {
   padding: 3px 2px;
-  margin: 14px 0;
+  margin: 0px 14px 0;
   display: flex !important;
   position: relative;
 
@@ -17,9 +17,8 @@
 
     &::before {
       color: var(--text-dark);
-      font-size: 14px;
-      top: 3px;
-      left: 30px;
+      font-size: 10px;
+      top: -16px;
     }
 
     svg {
@@ -57,9 +56,11 @@
   &:before {
     content: attr(data-title);
     position: absolute;
-    text-align: left;
-    left: 25px;
-    top: 10px;
+    text-align: center;
+    left: 50%;
+    top: -8px;
+    transform: translate(-50%);
+    color: #404040;
     font-size: 0px;
     width: fit-content;
     transition: 0.1s ease-out;
@@ -78,3 +79,4 @@
     right: 0;
   }
 }
+

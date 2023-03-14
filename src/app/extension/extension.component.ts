@@ -8,10 +8,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ExtensionComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, ) { }
 
   ngOnInit(): void {
     this.router.navigate(['test-case'], { relativeTo: this.route, skipLocationChange: true });
+    console.log(this.route.snapshot.url);
+    
   }
 
 }
