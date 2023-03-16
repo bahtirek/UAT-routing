@@ -1,0 +1,45 @@
+<div>
+    <span class="ui-uat-ext-title">Steps: </span>
+</div>
+
+<div class="ui-uat-ext-steps">
+    <div class="ui-uat-ext-step ui-uat-ext-table-header">
+        <div class="ui-uat-ext-step-number">#</div>
+        <div class="ui-uat-ext-step-description">Description</div>
+        <div class="ui-uat-ext-step-expectedResults">Expected Results</div>
+        <div class="ui-uat-ext-step-more"></div>
+    </div>
+    <div class="ui-uat-ext-step" *ngFor="let step of testCase?.testStepOrder; index as i">
+        <ng-container *ngIf="!step.importedTestCaseId">
+            <div class="ui-uat-ext-step-number">{{i + 1}}</div>
+            <div class="ui-uat-ext-step-description">{{step.test_step.description}}</div>
+            <div class="ui-uat-ext-step-expectedResults">{{step.test_step.expected}}</div>
+            <div class="ui-uat-ext-step-more">
+                <app-more-button-menu [actions]="actions" (onAction)="onAction($event, i)"></app-more-button-menu>
+            </div>
+        </ng-container>
+        <ng-container  *ngIf="step.importedTestCaseId">
+            <div class="ui-uat-ext-step-number">{{i + 1}}</div>
+            <div class="ui-uat-ext-step-description ui-br-ext-width-full text-bold">{{step.importedCaseTitle}} <span class="ui-uat-note-message">(Imported case)</span></div>
+            <div class="ui-uat-ext-step-more">
+                <app-more-button-menu [actions]="importActions" (onAction)="onImportAction($event, step, i)"></app-more-button-menu>
+            </div>
+        </ng-container>
+    </div>
+
+</div>
+<div class="ui-br-ext-flex ui-br-ext-justify-end ui-br-ext-btn-link-group">
+    <button (click)="onImportSteps()" class="ui-br-ext-btn-link">Import steps</button>
+    <button (click)="onStepAdd()" class="ui-br-ext-btn-link">Add new step</button>
+</div>
+<app-modal *ngIf="isAddStepModalOn" (closeModal)="toggleModal('addnewStepModal')" [propClass]="'ui-br-ext-width-full'">
+    <app-create-step (cancel)="toggleModal('addnewStepModal')" [stepToEdit]="stepToEdit" [stepIndex]="stepIndex" [testCaseId]="testCase?.testCaseId"></app-create-step>
+</app-modal>
+<app-modal *ngIf="isDeleteModalOn" (closeModal)="toggleModal('deleteStepModal')">
+    <app-delete-step (cancel)="toggleModal('deleteStepModal')" [stepToDelete]="stepToDelete"></app-delete-step>
+</app-modal>
+<app-modal *ngIf="importsReviewModalOn" (closeModal)="toggleModal('importsReviewModal')"  [propClass]="'ui-br-ext-width-full'">
+    <app-review-steps [testCase]="testCaseToReview"></app-review-steps>
+</app-modal>
+<app-import-steps></app-import-steps>
+

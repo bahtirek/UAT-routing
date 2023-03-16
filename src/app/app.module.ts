@@ -12,6 +12,8 @@ import { SettingsModule } from './extension/settings/settings.module';
 import { RegressionModule } from './extension/regression/regression.module';
 import { ExecuteModule } from './extension/execute/execute.module';
 import { EventsModule } from './extension/events/events.module';
+import { ModalComponent } from './shared/modal/modal.component';
+import { MoreButtonMenuComponent } from './shared/more-button-menu/more-button-menu.component';
 
 declare global {
   interface Window {

@@ -1,0 +1,31 @@
+
+
+<div class="ui-br-ext-form-container">
+    <h3>Step</h3>
+    <div class="ui-br-ext-width-full">
+        <form [formGroup]="stepForm" novalidate #form autocomplete="off">
+            <div class="ui-br-ext-flex ui-br-ext-nowrap ui-br-ext-gap-12">
+                <div class="ui-br-ext-form-container ui-br-ext-textarea">
+                    <label for="ui-br-ext-description">Description</label>
+                    <textarea name="ui-br-ext-description" rows="3" data-gramm="false" maxlength="1000" formControlName="description" id="description" required></textarea>
+                    <span class="ui-br-ext-message" *ngIf="(description.dirty || submitClicked) && description.invalid">Field is required</span>
+                </div>
+                <div class="ui-br-ext-form-container ui-br-ext-textarea">
+                    <label for="ui-br-ext-description">Expected results</label>
+                    <textarea name="ui-br-ext-description" rows="3" data-gramm="false" maxlength="1000" formControlName="expected" id="expected" required></textarea>
+                    <span class="ui-br-ext-message" *ngIf="(expected.dirty || submitClicked) && expected.invalid">Field is required</span>
+                </div>
+            </div>
+        </form>
+        <div class="ui-br-ext-btn-group">
+            <button class="ui-br-ext-btn"  data-listener="off" (click)="onStepSave()" [disabled]="submitInProgress">
+                <span class="ui-br-ext-spinner" [ngClass]="{'active': submitInProgress}"></span>
+                <span>Save</span> 
+            </button>
+            <button class="ui-br-ext-btn-danger"  data-listener="off" (click)="onCancel()" [disabled]="submitInProgress">
+                <span class="ui-br-ext-spinner"></span>
+                <span>Cancel</span> 
+            </button>
+        </div>
+    </div>
+</div>
