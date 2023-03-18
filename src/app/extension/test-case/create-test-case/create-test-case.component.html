@@ -4,7 +4,7 @@
     <app-case-steps></app-case-steps>
 </ng-container>
 
-<app-modal *ngIf="caseChoiceModalOn" (closeModal)="toggleModal()">
+<app-modal *ngIf="caseChoiceModalOn" (closeModal)="closeModal()">
   <div>
       <h3>Create test case</h3>
       <p>Would you like to create a new test case or continue the previous one?</p>

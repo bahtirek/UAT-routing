@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { take } from 'rxjs';
 import { TestCase } from 'src/app/interfaces/test-case.interface';
 import { TestCaseService } from 'src/app/services/test-case.service';
@@ -21,7 +22,7 @@ export class CreateTestCaseComponent implements OnInit {
   submitInProgress: boolean = false;
   onCreate: boolean = false;
 
-  constructor(private testCaseService: TestCaseService) { }
+  constructor(private testCaseService: TestCaseService, private router: Router) { }
 
   ngOnInit(): void {
     this.testCaseService.testCaseSource.pipe(take(2)).subscribe((testCase: TestCase) => {
@@ -48,6 +49,10 @@ export class CreateTestCaseComponent implements OnInit {
     )
   }
 
+  closeModal(){
+    this.caseChoiceModalOn = false;
+    this.router.navigate(['./test-case/dashboard'], { skipLocationChange: true });
+  }
   toggleModal(){
     this.caseChoiceModalOn = !this.caseChoiceModalOn;
   }
