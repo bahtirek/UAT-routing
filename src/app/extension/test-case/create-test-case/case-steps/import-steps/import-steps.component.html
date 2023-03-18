@@ -1,18 +1,18 @@
-<app-modal *ngIf="isSearchTestCaseModalOn" (closeModal)="toggleModal()" [propClass]="'ui-br-ext-width-full'">
+<app-modal *ngIf="isSearchTestCaseModalOn" (closeModal)="toggleModal()" [propClass]="'width-full'">
     <div>
         <h3>Import steps</h3>
         <app-search-test-case (testCaseEmit)="onTestCaseImport($event)" (cancel)="toggleModal()"></app-search-test-case>
     </div>
 </app-modal>
 <app-modal *ngIf="isErrorModalOn" (closeModal)="toggleErrorModal()">
-    <div class="ui-br-ext-form-container">
+    <div class="form-container">
         <h3>Import error</h3>
-        <div class="ui-br-ext-width-full">
-            <div class="ui-br-ext-form-container ui-br-ext-textarea">
+        <div class="width-full">
+            <div class="form-container">
                 <p>{{error}}</p>
             </div>
-            <div class="ui-br-ext-btn-group">
-                <button class="ui-br-ext-btn-danger"  data-listener="off" (click)="toggleErrorModal()">
+            <div class="btn-group">
+                <button class="btn-danger"  data-listener="off" (click)="toggleErrorModal()">
                     <span class="ui-br-ext-spinner"></span>
                     <span>Ok</span> 
                 </button>

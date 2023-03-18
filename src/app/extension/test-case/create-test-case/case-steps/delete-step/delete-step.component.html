@@ -1,13 +1,13 @@
-<div class="ui-br-ext-form-container">
+<div class="form-container">
     <h3>Delete Step?</h3>
-    <div class="ui-br-ext-width-full">
+    <div class="width-full">
         <p>{{stepToDelete.description}}</p>
-        <div class="ui-br-ext-btn-group">
-            <button class="ui-br-ext-btn"  data-listener="off" (click)="delete()" [disabled]="submitInProgress">
+        <div class="btn-group">
+            <button class=""  data-listener="off" (click)="delete()" [disabled]="submitInProgress">
                 <span class="ui-br-ext-spinner" [ngClass]="{'active': submitInProgress}"></span>
                 <span>Delete</span> 
             </button>
-            <button class="ui-br-ext-btn-danger"  data-listener="off" (click)="onCancel()" [disabled]="submitInProgress">
+            <button class="btn-danger"  data-listener="off" (click)="onCancel()" [disabled]="submitInProgress">
                 <span class="ui-br-ext-spinner"></span>
                 <span>Cancel</span> 
             </button>

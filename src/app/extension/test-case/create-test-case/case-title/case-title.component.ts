@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MoreButtonAction } from 'src/app/interfaces/more-button-action.interface';
 import { TestCase } from 'src/app/interfaces/test-case.interface';
 import { TestCaseService } from 'src/app/services/test-case.service';
@@ -10,6 +11,7 @@ import { TestCaseService } from 'src/app/services/test-case.service';
 })
 export class CaseTitleComponent implements OnInit {
   
+  createCase: boolean = false;
   testCase: TestCase;
   testCaseToEdit: TestCase = {};
   isCaseTitleModalOn: boolean = false;
@@ -21,20 +23,33 @@ export class CaseTitleComponent implements OnInit {
     },
   ]
 
-  constructor(private testCaseService: TestCaseService) { }
+  //opening create ttitle by default
+  @Input() set onCreate(value: boolean){
+    this.isCaseTitleModalOn = value;
+    this.createCase = value;
+  }
+
+  @Input() set testCaseProp(value: TestCase) {
+    this.testCase = value;
+  }
+
+  constructor(private testCaseService: TestCaseService, private router: Router) { }
 
   ngOnInit(): void {
-    this.testCaseService.testCaseSource.subscribe((testCase: TestCase) => {
-      this.testCase = testCase as TestCase;
-      console.log(this.testCase);
-      
-      this.testCaseToEdit = {};
-      this.isCaseTitleModalOn = false;
-    })
+  }
+
+  onCreateCancel(){
+    this.router.navigate(['./test-case/dashboard'], { skipLocationChange: true });
   }
 
   onCaseTestCaseEdit(){
     this.testCaseToEdit = {...this.testCase};
+    this.toggleAddTestCaseModal();
+  }
+  
+  onTestCaseTitleSaved(testCase: TestCase){
+    this.testCaseService.setTestCase(testCase);
+    //this.testCase = testCase;
     this.toggleAddTestCaseModal();
   }
 

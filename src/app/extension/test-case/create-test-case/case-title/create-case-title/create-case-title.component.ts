@@ -21,7 +21,7 @@ export class CreateCaseTitleComponent implements OnInit {
   @Input() testCase: TestCase;
 
   @Output() cancel = new EventEmitter<null>();
-  @Output() saveTestCase = new EventEmitter<TestCase>();
+  @Output() onTestCaseTitleSaved = new EventEmitter<TestCase>();
 
   onSaveTestCase(){
     this.formError.title = [];
@@ -43,7 +43,8 @@ export class CreateCaseTitleComponent implements OnInit {
       response => {
         console.log(response);
         this.submitInProgress = false;
-        this.testCaseService.setTestCase(response)
+        this.onTestCaseTitleSaved.emit(response);
+        //this.testCaseService.setTestCase(response)
       },
       error => {
         this.submitInProgress = false;
@@ -56,7 +57,8 @@ export class CreateCaseTitleComponent implements OnInit {
       response => {
         console.log(response);
         this.submitInProgress = false;
-        this.testCaseService.setTestCase(response)
+        this.onTestCaseTitleSaved.emit(response);
+        //this.testCaseService.setTestCase(response)
       },
       error => {
         this.submitInProgress = false;
