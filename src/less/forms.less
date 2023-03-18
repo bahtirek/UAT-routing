@@ -67,7 +67,7 @@ label {
   color: red;
 }
 
-.ui-br-ext-search-results {
+.search-results {
   width: 100%;
   padding-top: 10px;
   position: relative;
@@ -89,36 +89,7 @@ label {
           justify-content: space-between;
           &:hover, &.ui-br-ext-hovered {
               background-color: #f7f7f7;
-              .ui-br-ext-module-icons span {
-                  display: flex;
-              }
-          }
-      
-          .ui-br-ext-module-label:not(.ui-br-ext-no-hover):hover {
               cursor: pointer;
-              text-shadow: .25px 0px .1px,
-                          -.25px 0px .1px;
-          }
-
-          .ui-br-ext-module-icons {
-              display: flex;
-              width: 30px;
-              cursor: pointer;
-              span {
-                  margin: 0 5px;
-                  align-items: center;
-                  //display: flex;
-                  display: none;
-                  &:hover {
-                      svg {
-                          stroke: #00ad55;                                       
-                      }
-                      &.trash-icon svg{
-                          stroke: #d02525;
-                      }
-
-                  }
-              }
           }
       }
   }
