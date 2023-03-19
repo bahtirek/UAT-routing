@@ -14,7 +14,7 @@ export class TestCaseBtnComponent implements OnInit {
   }
 
   onMenuBtnClick(){
-    this.router.navigate(['test-case'], { relativeTo: this.route, skipLocationChange: true });
+    this.router.navigate(['test-case1/dashboard'], { relativeTo: this.route, skipLocationChange: true });
   }
 
 }
