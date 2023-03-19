@@ -17,7 +17,14 @@ export class TestCaseService {
 
   constructor(private http: HttpClient) { }
 
-  testCase: TestCase;
+  private _testCase: TestCase;
+
+    get testCase(): TestCase {
+        return this._testCase;
+    }
+    set testCase(value: TestCase) {
+        this._testCase = value;
+    }
 
   testCaseSource = new Subject<TestCase>()
 

@@ -174,7 +174,8 @@ export class CaseStepsComponent implements OnInit {
   }
   
   onImportSteps(){
-    this.testCaseService.stepOrderForImport = this.testCase.testStepOrder.length + 1;
+    let length = this.testCase.testStepOrder?.length || 0;
+    this.testCaseService.stepOrderForImport = length + 1;
     this.importSteps.toggleModal()
   }
 

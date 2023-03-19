@@ -12,10 +12,10 @@ import { TestCaseService } from 'src/app/services/test-case.service';
 export class CreateTestCaseComponent implements OnInit {
 
   testCase: TestCase = {
-    "testCaseId": 9,
+    /* "testCaseId": 9,
     "title": "dfgdfg",
     "createdBy": null,
-    "deleted": false,
+    "deleted": false, */
 };
   scrollTop: any;
   caseChoiceModalOn: boolean = true;

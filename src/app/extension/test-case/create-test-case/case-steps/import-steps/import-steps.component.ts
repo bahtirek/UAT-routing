@@ -21,11 +21,14 @@ export class ImportStepsComponent implements OnInit {
 
   ngOnInit(): void {
     this.testCase = this.testCaseService.testCase;
+    console.log(this.testCase);
+    
   }
 
 
   async onTestCaseImport(importedTestCase: TestCase) {
     console.log(importedTestCase);
+    console.log(this.testCase);
     const testCaseToImport: ImportedTestCase = {
       testCaseId: this.testCase.testCaseId,
       importedTestCaseId: importedTestCase.testCaseId,
