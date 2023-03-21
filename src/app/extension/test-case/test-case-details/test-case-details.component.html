@@ -1,6 +1,8 @@
 <p>test-case-details works!</p>
-<div class="link-group flex justify-end">
+<div class="flex justify-between">
   <a [routerLink]="['../dashboard']" [skipLocationChange]="true" routerLinkActive="active">Back to Dashboard</a>
-  <a >Edit</a>
-  <!-- <a >Delete</a> -->
+  <div class="link-group flex justify-end">
+    <a >Edit</a>
+    <a class="link-danger">Delete</a>
+  </div>
 </div>

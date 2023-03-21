@@ -64,29 +64,3 @@
   }
 
 }
-
-a {
-  font-weight: bold;
-  color: var(--primary);
-  white-space: nowrap;
-  text-decoration: none;
-  cursor: pointer;
-  &:hover {
-    color: var(--primary-hover);
-  }
-  &:active, &:focus {
-    color: var(--primary-focus);
-  }
-  &.active {
-    color: var(--primary-focus);
-    text-decoration: underline;
-  }
-}
-
-.link-group {
-  a:not(:last-child) {
-    margin-right: 15px;
-    padding: 0 16px;
-    border-right: 1px solid var(--text-lightest);
-  }
-}

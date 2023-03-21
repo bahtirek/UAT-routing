@@ -28,13 +28,14 @@
     </div>
 
 </div>
-<!-- <div class="flex justify-end btn-link-group">
-    <button (click)="onImportSteps()" class="btn-link">Import steps</button>
-    <button (click)="onStepAdd()" class="btn-link">Add new step</button>
-</div> -->
-<div class="link-group flex justify-end">
-    <a (click)="onImportSteps()">Import steps</a>
-    <a (click)="onStepAdd()">Add new step</a>
+
+<div class="flex justify-between">
+    <a [routerLink]="['../dashboard']" [skipLocationChange]="true" routerLinkActive="active">Back to Dashboard</a>
+
+    <div class="link-group flex justify-end">
+        <a (click)="onImportSteps()">Import steps</a>
+        <a (click)="onStepAdd()">Add new step</a>
+    </div>
 </div>
 <app-modal *ngIf="isAddStepModalOn" (closeModal)="toggleModal('addnewStepModal')" [propClass]="'width-full'">
     <app-create-step (cancel)="toggleModal('addnewStepModal')" [stepToEdit]="stepToEdit" [stepIndex]="stepIndex" [testCaseId]="testCase?.testCaseId"></app-create-step>

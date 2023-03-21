@@ -122,6 +122,40 @@
             margin-inline-end: 8px;
         }
     }
+
+    a {
+        font-weight: bold;
+        color: var(--primary);
+        white-space: nowrap;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+          color: var(--primary-hover);
+        }
+        &:active, &:focus {
+          color: var(--primary-focus);
+        }
+        &.active {
+          color: var(--primary-focus);
+          text-decoration: underline;
+        }
+
+        &.link-danger {
+            color: var(--danger);
+
+            &:hover {
+                color: var(--danger-light);
+            }
+        }
+      }
+      
+      .link-group {
+        a:not(:last-child) {
+          margin-right: 15px;
+          padding-right: 16px;
+          border-right: 1px solid var(--text-lightest);
+        }
+      }
     
 }
 

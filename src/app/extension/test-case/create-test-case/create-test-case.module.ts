@@ -12,6 +12,7 @@ import { ImportStepsComponent } from './case-steps/import-steps/import-steps.com
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCaseTitleComponent } from './case-title/create-case-title/create-case-title.component';
 import { SearchTestCaseModule } from 'src/app/shared/search-test-case/search-test-case.module';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { SearchTestCaseModule } from 'src/app/shared/search-test-case/search-tes
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    SearchTestCaseModule
+    SearchTestCaseModule,
+    RouterModule
   ],
   exports: [
     CreateTestCaseComponent,

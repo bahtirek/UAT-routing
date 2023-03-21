@@ -13,7 +13,7 @@ export class TestCaseComponent implements OnInit {
     .pipe(
       filter(event => event instanceof NavigationStart),
       map(event => event as NavigationStart),  // appease typescript
-      filter(event => event.url.includes('/test-case/') )
+      filter(event => event.url.includes('/test-case') )
     )
     .subscribe(
       event => this.setBreadcrumb(event)
@@ -33,10 +33,13 @@ export class TestCaseComponent implements OnInit {
 
   setBreadcrumb(event: NavigationStart): void {
     let url = event.url.replace('-', ' ').substring(1);
-    console.log(url);
-    
     this.pageTitle = url.replace('/', ' / ');
-    
+
+    //When clicked on test case menu button from any test case page
+    if(!this.pageTitle.includes('/')) {
+      this.pageTitle = `${this.pageTitle} / Dashboard`
+      this.router.navigate(['dashboard'], { relativeTo: this.route, skipLocationChange: true });
+    }
   }
 
 }
