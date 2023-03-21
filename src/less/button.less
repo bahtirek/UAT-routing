@@ -51,6 +51,16 @@
             }
         }
     }
+
+    .icon-btn {
+        &::before {
+            color: var(--primary);
+        }
+        svg {
+            stroke: var(--primary);
+            transform: scale(1.4);
+        }
+    }
     
     button[aria-busy=true] {
         pointer-events: none;
