@@ -39,6 +39,7 @@ export class SearchTestCaseComponent implements OnInit {
   testCases: TestCase[];
   testCaseId: number;
   titleSearch = new Subject<string>();
+  searchError: string;
 
   constructor(private testCaseService: TestCaseService) {}
 
@@ -59,14 +60,21 @@ export class SearchTestCaseComponent implements OnInit {
   @Output() testCaseEmit = new EventEmitter<TestCase>();
 
   searchTestCase(){
-    console.log(this.testCaseId)
-    this.testCaseService.searchTestCase(this.title, 0).subscribe(
-      response => {
-        console.log(response);
-        
-        this.testCases = response;
-      }
-    )
+    this.searchError = '';
+    let searchQuery = this.title;
+    searchQuery = searchQuery.trim();
+    if(searchQuery.length > 2) {
+      this.testCaseService.searchTestCase(this.title, 0).subscribe(
+        response => {
+          console.log(response);
+          
+          this.testCases = response;
+        }
+      )
+    } else {
+      this.testCases = [];
+      this.searchError = 'Search query should more than 2 characters';
+    }
   }
 
   onImport(importedTestCase: TestCase){
