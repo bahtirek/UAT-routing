@@ -14,6 +14,7 @@ export class TestCaseService {
 
   url = api.url;
   stepOrderForImport: number;
+  testCaseDetails: TestCase;
 
   constructor(private http: HttpClient) { }
 

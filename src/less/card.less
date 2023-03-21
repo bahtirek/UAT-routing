@@ -1,35 +1,45 @@
-.ui-aut-ext-card {
+.card {
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px !important;
-    border-radius: 4px;
+    //border: 1px solid var(--text-lightest);
+    border-radius: 6px;
     padding: 20px 20px;
-    display: flex;
-    align-items: center;
-    &:hover:not(:disabled) {
+    margin-bottom: 20px;
+
+    &:not(:last-child){
+        margin-right: 20px;
+    }
+
+    h3 {
+        margin-top: 0;
+        color: var(--primary);
+    }
+ 
+    /* &:hover:not(:disabled) {
         cursor: pointer;
         box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px !important;
-        .ui-aut-ext-card-icon {
+        .card-icon {
             margin-top:-1px;
             svg {
                 color: #4fc159;
             }
         }
-        .ui-aut-ext-card-content {
+        .card-content {
             margin-top:-1px;
         }
-    }
-    .ui-aut-ext-card-icon {
+    } */
+    .card-icon {
         svg {
             height: 60px;
             width: 60px;
             color: #85d18c;
         }
     }
-    .ui-aut-ext-card-content {
+    .card-content {
         padding-left: 16px;
         font-size: 15px;
         line-height: 21px;
 
-        .ui-aut-ext-card-title {
+        .card-title {
             color: #00ad55;
             margin: 5px 0;
             font-size: 18px;

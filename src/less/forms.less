@@ -30,6 +30,10 @@ textarea {
   color: var(--color);
   width: 100%;
   box-sizing: border-box;
+
+  &:focus {
+    border-color: var(--primary);
+  }
 }
 
 label {
@@ -69,7 +73,6 @@ label {
 
 .search-results {
   width: 100%;
-  padding-top: 10px;
   position: relative;
   ul {
       margin: 0;

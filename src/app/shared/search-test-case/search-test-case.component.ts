@@ -43,7 +43,7 @@ export class SearchTestCaseComponent implements OnInit {
   constructor(private testCaseService: TestCaseService) {}
 
   ngOnInit(): void {
-    this.testCaseId = this.testCaseService.testCase.testCaseId;
+    this.testCaseId = this.testCaseService.testCase?.testCaseId;
   }
 
   ngAfterViewInit(){

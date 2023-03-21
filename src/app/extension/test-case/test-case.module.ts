@@ -7,6 +7,7 @@ import { TestCaseDetailsComponent } from './test-case-details/test-case-details.
 import { CreateTestCaseComponent } from './create-test-case/create-test-case.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateTestCaseModule } from './create-test-case/create-test-case.module';
+import { SearchTestCaseModule } from 'src/app/shared/search-test-case/search-test-case.module';
 
 const routes: Routes = [
   { 
@@ -36,6 +37,7 @@ const routes: Routes = [
     FormsModule,
     ReactiveFormsModule,
     CreateTestCaseModule,
+    SearchTestCaseModule,
     RouterModule.forChild(routes),
   ]
 })

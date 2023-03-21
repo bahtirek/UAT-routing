@@ -1,1 +1,17 @@
-<p>test-case-dash works!</p>
+<div class="flex no-wrap">
+  <div class="card width">
+    <app-search-test-case (testCaseEmit)="onTestCaseFound($event)"></app-search-test-case>
+  </div>
+  <div class="card">
+    <button >Create Test Case</button>
+  </div>
+
+</div>
+<div class="card">
+  <h3>Test case</h3>
+  <ul>
+    <li>Total cases ....  20</li>
+    <li>Executed times ....  200</li>
+    <li>Total steps ....  200</li>
+  </ul>
+</div>

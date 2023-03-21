@@ -10,8 +10,8 @@ import { DeleteStepComponent } from './case-steps/delete-step/delete-step.compon
 import { ReviewStepsComponent } from 'src/app/shared/review-steps/review-steps.component';
 import { ImportStepsComponent } from './case-steps/import-steps/import-steps.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SearchTestCaseComponent } from 'src/app/shared/search-test-case/search-test-case.component';
 import { CreateCaseTitleComponent } from './case-title/create-case-title/create-case-title.component';
+import { SearchTestCaseModule } from 'src/app/shared/search-test-case/search-test-case.module';
 
 
 @NgModule({
@@ -25,13 +25,13 @@ import { CreateCaseTitleComponent } from './case-title/create-case-title/create-
     DeleteStepComponent,
     ReviewStepsComponent,
     ImportStepsComponent,
-    SearchTestCaseComponent,
     CreateCaseTitleComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    SearchTestCaseModule
   ],
   exports: [
     CreateTestCaseComponent,
