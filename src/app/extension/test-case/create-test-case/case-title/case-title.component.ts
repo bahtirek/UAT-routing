@@ -39,7 +39,11 @@ export class CaseTitleComponent implements OnInit {
   }
 
   onCreateCancel(){
-    this.router.navigate(['./test-case/dashboard'], { skipLocationChange: true });
+    if (this.testCaseToEdit?.testCaseId) {
+      this.toggleAddTestCaseModal();
+    } else {
+      this.router.navigate(['./test-case/dashboard'], { skipLocationChange: true });
+    }
   }
 
   onCaseTestCaseEdit(){
