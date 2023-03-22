@@ -13,6 +13,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateCaseTitleComponent } from './case-title/create-case-title/create-case-title.component';
 import { SearchTestCaseModule } from 'src/app/shared/search-test-case/search-test-case.module';
 import { RouterModule } from '@angular/router';
+import { ModalModule } from 'src/app/shared/modal/modal.module';
+import { ReviewStepsModule } from 'src/app/shared/review-steps/review-steps.module';
 
 
 @NgModule({
@@ -21,10 +23,8 @@ import { RouterModule } from '@angular/router';
     CaseStepsComponent,
     CaseTitleComponent,
     MoreButtonMenuComponent,
-    ModalComponent,
     CreateStepComponent,
     DeleteStepComponent,
-    ReviewStepsComponent,
     ImportStepsComponent,
     CreateCaseTitleComponent
   ],
@@ -33,7 +33,9 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     SearchTestCaseModule,
-    RouterModule
+    RouterModule,
+    ModalModule,
+    ReviewStepsModule
   ],
   exports: [
     CreateTestCaseComponent,

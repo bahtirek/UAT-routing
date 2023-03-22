@@ -98,15 +98,7 @@ export class TestCaseService {
   }
 
   setTestCase(testCase: TestCase){
-    if(testCase.testStepOrder) {
-      testCase.testStepOrder.forEach(step => {
-        if(step.importedTestCaseId) {
-          const importedCase = testCase.importedTestCases.find(testCaseItem => testCaseItem.testCaseId == step.importedTestCaseId);
-          step.importedCaseTitle = importedCase.title;
-        }
-      })
-    }
-    this.testCase = testCase;
+    this.testCase = this.setTitleForImportedCase({...testCase});
     this.testCaseSource.next(testCase)
   }
 
@@ -146,6 +138,18 @@ export class TestCaseService {
         if(i == importedCases.length - 1) resolve();
       }
     })
+  }
+
+  setTitleForImportedCase(testCase: TestCase){
+    if(testCase.testStepOrder) {
+      testCase.testStepOrder.forEach(step => {
+        if(step.importedTestCaseId) {
+          const importedCase = testCase.importedTestCases.find(testCaseItem => testCaseItem.testCaseId == step.importedTestCaseId);
+          step.importedCaseTitle = importedCase.title;
+        }
+      })
+    }
+    return testCase;
   }
 
   getTestCase(){
