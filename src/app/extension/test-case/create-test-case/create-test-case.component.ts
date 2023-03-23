@@ -18,13 +18,18 @@ export class CreateTestCaseComponent implements OnInit {
     "deleted": false, */
 };
   scrollTop: any;
-  caseChoiceModalOn: boolean = true;
+  caseChoiceModalOn: boolean = false;
   submitInProgress: boolean = false;
   onCreate: boolean = false;
 
   constructor(private testCaseService: TestCaseService, private router: Router) { }
 
   ngOnInit(): void {
+    if(!this.testCaseService.testCaseDetails?.testCaseId){
+      this.caseChoiceModalOn = true;
+    } else {
+      this.testCase = this.testCaseService.getTestCase();
+    }
     this.testCaseService.testCaseSource.pipe(take(2)).subscribe((testCase: TestCase) => {
       this.testCase = testCase;
     })

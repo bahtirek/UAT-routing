@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TestCase, TestStepOrder } from 'src/app/interfaces/test-case.interface';
 import { TestCaseService } from 'src/app/services/test-case.service';
 
@@ -12,7 +13,7 @@ export class TestCaseDetailsComponent implements OnInit {
   testCaseToReview: TestCase;
   importsReviewModalOn: boolean = false;
 
-  constructor(private testCaseService: TestCaseService) { }
+  constructor(private router: Router, private testCaseService: TestCaseService) { }
 
   ngOnInit(): void {
     const testCaseId = this.testCaseService.testCaseDetails.testCaseId;
@@ -35,6 +36,11 @@ export class TestCaseDetailsComponent implements OnInit {
         this.toggleModal();
       }
     )
+  }
+
+  onEdit(){
+    this.testCaseService.setTestCase(this.testCase);
+    this.router.navigate(['test-case/create'], { skipLocationChange: true });
   }
 
   toggleModal(){

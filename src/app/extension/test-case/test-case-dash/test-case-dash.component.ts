@@ -13,6 +13,8 @@ export class TestCaseDashComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute, private testCaseService: TestCaseService) { }
 
   ngOnInit(): void {
+    this.testCaseService.clearTestCase();
+    this.testCaseService.clearTestCase();
   }
 
   onTestCaseFound(testCase: TestCase){

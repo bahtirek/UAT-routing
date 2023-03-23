@@ -155,4 +155,9 @@ export class TestCaseService {
   getTestCase(){
     return this.testCase;
   }
+
+  clearTestCase() {
+    this.testCase = {};
+    this.testCaseDetails = {};
+  }
 }
