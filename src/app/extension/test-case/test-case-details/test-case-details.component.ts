@@ -40,7 +40,7 @@ export class TestCaseDetailsComponent implements OnInit {
 
   onEdit(){
     this.testCaseService.setTestCase(this.testCase);
-    this.router.navigate(['test-case/create'], { skipLocationChange: true });
+    this.router.navigate(['test-case/create/edit'], { skipLocationChange: true });
   }
 
   toggleModal(){

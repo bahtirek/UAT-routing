@@ -32,12 +32,11 @@ export class TestCaseComponent implements OnInit {
   }
 
   setBreadcrumb(event: NavigationStart): void {
-    let url = event.url.replace('-', ' ').substring(1);
-    this.pageTitle = url.replace('/', ' / ');
-
-    //When clicked on test case menu button from any test case page
-    if(!this.pageTitle.includes('/')) {
-      this.pageTitle = `${this.pageTitle} / Dashboard`
+    let url = event.url.replace('-', ' ').substring(1).split('/');
+    if(url.length > 1) {
+      this.pageTitle = `${url[0]} / ${url[url.length-1]}`
+    } else {
+      this.pageTitle = `${url[0]} / Dashboard`;
       this.router.navigate(['dashboard'], { relativeTo: this.route, skipLocationChange: true });
     }
   }

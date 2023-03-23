@@ -24,6 +24,9 @@ const routes: Routes = [
       {
         path: 'create', component: CreateTestCaseComponent
       },
+      {
+        path: 'create/:id', component: CreateTestCaseComponent
+      },
     ] 
   }
 ];
