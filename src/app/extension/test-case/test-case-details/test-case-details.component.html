@@ -39,9 +39,21 @@
   <a [routerLink]="['../dashboard']" [skipLocationChange]="true" routerLinkActive="active">Back to Dashboard</a>
   <div class="link-group flex justify-end">
     <a (click)="onEdit()">Edit</a>
-    <a class="link-danger">Delete</a>
+    <a class="link-danger" (click)="toggleDeleteModal()">Delete</a>
   </div>
 </div>
 <app-modal *ngIf="importsReviewModalOn" (closeModal)="toggleModal()"  [propClass]="'width-full'">
   <app-review-steps [testCase]="testCaseToReview"></app-review-steps>
+</app-modal>
+
+<app-modal *ngIf="deleteModalOn" (closeModal)="toggleDeleteModal()" >
+  <h3>Delete test case</h3>
+  <div class="btn-group">
+    <button class=""  data-listener="off" (click)="onDeleteTestCase()" [disabled]="submitInProgress" [attr.aria-busy]="submitInProgress">
+        <span>Delete</span> 
+    </button>
+    <button class="btn-danger"  data-listener="off" (click)="toggleDeleteModal()">
+        <span>Cancel</span> 
+    </button>
+</div>
 </app-modal>

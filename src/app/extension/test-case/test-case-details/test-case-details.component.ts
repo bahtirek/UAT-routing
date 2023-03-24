@@ -12,6 +12,8 @@ export class TestCaseDetailsComponent implements OnInit {
   testCase: TestCase;
   testCaseToReview: TestCase;
   importsReviewModalOn: boolean = false;
+  deleteModalOn: boolean = false;
+  submitInProgress: boolean = false;
 
   constructor(private router: Router, private testCaseService: TestCaseService) { }
 
@@ -41,6 +43,19 @@ export class TestCaseDetailsComponent implements OnInit {
   onEdit(){
     this.testCaseService.setTestCase(this.testCase);
     this.router.navigate(['test-case/create/edit'], { skipLocationChange: true });
+  }
+
+  onDelete(){
+    this.deleteModalOn = false
+  }
+  
+  onDeleteTestCase(){
+    console.log('deleted');
+    this.deleteModalOn = false
+  }
+
+  toggleDeleteModal(){
+    this.deleteModalOn = !this.deleteModalOn;
   }
 
   toggleModal(){
