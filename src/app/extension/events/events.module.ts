@@ -5,19 +5,20 @@ import { EventDeatilsComponent } from './event-deatils/event-deatils.component';
 import { EventsDashComponent } from './events-dash/events-dash.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EventsComponent } from './events.component';
+import { SearchEventModule } from 'src/app/shared/search-event/search-event.module';
 
 const routes: Routes = [
   { 
     path: '', component: EventsComponent,
     children: [
       {
-        path: 'dashboard', component: CreateEventComponent
+        path: 'create', component: CreateEventComponent
       },
       {
         path: 'details', component: EventDeatilsComponent
       },
       {
-        path: 'create', component: EventsDashComponent
+        path: 'dashboard', component: EventsDashComponent
       },
     ] 
   }
@@ -31,6 +32,7 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
+    SearchEventModule,
     RouterModule.forChild(routes),
   ]
 })

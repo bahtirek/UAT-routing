@@ -12,4 +12,9 @@ export class EventsDashComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onEventFound(event: Event) {
+    console.log(event);
+    
+  }
+
 }
