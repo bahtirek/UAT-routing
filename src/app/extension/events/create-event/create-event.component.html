@@ -1,3 +1,7 @@
 <app-event-title [onCreate]="onCreate" [eventProp]="event"></app-event-title>
 
-
+<ng-container *ngIf="event.title">
+  <app-event-description (descriptionEmit)="saveDescription($event)"></app-event-description>
+  <app-event-environment (environmentEmit)="saveEnvironment($event)"></app-event-environment>
+  <app-event-members></app-event-members>
+</ng-container>

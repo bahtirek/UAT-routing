@@ -50,7 +50,7 @@ export class CreateEventTitleComponent implements OnInit {
         this.submitInProgress = false;
       }
     ) */
-    this.onEventTitleSaved.emit({});
+    this.onEventTitleSaved.emit({eventId: 1, title: this.event.title});
   }
 
   addEvent(){

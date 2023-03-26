@@ -9,10 +9,18 @@ import { api } from '../data/api-url';
 })
 export class EventService {
 
-  event: Event = {};
+  //event: Event = {};
   url = api.url;
 
   constructor(private http: HttpClient) { }
+  private _event: Event;
+
+  get event(): Event {
+      return this._event;
+  }
+  set event(value: Event) {
+      this._event = value;
+  }
 
   eventSource = new Subject<Event>();
 
@@ -30,6 +38,7 @@ export class EventService {
 
   setEvent(event: Event){
     this.event = event;
+    this.eventSource.next(event)
   }
   updateEvent(event: Event){
     this.event = event;

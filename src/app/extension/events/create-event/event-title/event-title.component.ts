@@ -54,7 +54,7 @@ export class EventTitleComponent implements OnInit {
   
   onEventTitleSaved(event: Event){
     this.eventService.setEvent(event);
-    //this.event = event;
+    this.event = event;
     this.toggleAddeventModal();
   }
 
