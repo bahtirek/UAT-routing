@@ -9,7 +9,7 @@ import { MoreButtonAction } from 'src/app/interfaces/more-button-action.interfac
 export class EventDescriptionComponent implements OnInit {
 
   isEventDescriptionModalOn: boolean = false;
-  description: string;
+  description: string = 'lorem ipsum';
   descriptionToEdit: string;
   actions: MoreButtonAction[] = [
     {
@@ -37,7 +37,7 @@ export class EventDescriptionComponent implements OnInit {
 
   saveDescription(decription: string){
     this.description = decription;
-    this.descriptionEmit.emit(this.description)
+    //this.descriptionEmit.emit(this.description)
     this.toggleModal()
   }
 

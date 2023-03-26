@@ -1,1 +1,25 @@
-<p>event-description works!</p>
+<div>
+  <div class="card ">
+    <ng-container *ngIf="!description">
+      <div class="flex justify-end items-center">
+        <button (click)="addDescription()" class="btn-link">Add event description</button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="description">
+      <div class="case-title flex items-start">
+        <span class="title-sm ">Description: </span>
+        <div class="text-pre">{{description}}</div>
+        <app-more-button-menu [actions]="actions" (onAction)="onAction($event)"></app-more-button-menu>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<app-modal *ngIf="isEventDescriptionModalOn" (closeModal)="toggleModal()">
+  <app-create-event-description 
+    (cancel)="toggleModal()" 
+    [description]="descriptionToEdit" 
+    (descriptionEmit)="saveDescription($event)">
+  </app-create-event-description>
+</app-modal>
+

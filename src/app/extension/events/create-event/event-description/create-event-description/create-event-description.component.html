@@ -1,0 +1,20 @@
+<div >
+  <h3>Event description</h3>
+  <div class="width-full">
+      <div class="form-container">
+          <label for="label">Description</label>
+          <textarea type="text" name="label" [(ngModel)]="description" ></textarea>
+          <span class="form-error-message">
+              <span *ngFor="let error of formError.title; index as i">{{error}}</span>
+          </span>
+      </div>
+      <div class="btn-group">
+          <button class=""  data-listener="off" (click)="onSaveDescription()" [disabled]="submitInProgress" [attr.aria-busy]="submitInProgress">
+              <span>Save</span> 
+          </button>
+          <button class="btn-danger"  data-listener="off" (click)="onCancel()" [disabled]="submitInProgress" >
+              <span>Cancel</span> 
+          </button>
+      </div>
+  </div>
+</div>

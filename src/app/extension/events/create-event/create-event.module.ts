@@ -9,6 +9,7 @@ import { ModalModule } from 'src/app/shared/modal/modal.module';
 import { MoreButtonMenuModule } from 'src/app/shared/more-button-menu/more-button-menu.module';
 import { CreateEventTitleComponent } from './event-title/create-event-title/create-event-title.component';
 import { FormsModule } from '@angular/forms';
+import { CreateEventDescriptionComponent } from './event-description/create-event-description/create-event-description.component';
 
 
 
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     EventEnvironmentComponent,
     EventMembersComponent,
     CreateEventComponent,
-    CreateEventTitleComponent
+    CreateEventTitleComponent,
+    CreateEventDescriptionComponent
   ],
   imports: [
     CommonModule,

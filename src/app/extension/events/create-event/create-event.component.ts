@@ -11,13 +11,13 @@ import { EventService } from 'src/app/services/event.service';
 })
 export class CreateEventComponent implements OnInit {
 
-  onCreate: boolean = true;
-  event: Event = {};
+  onCreate: boolean = false;
+  event: Event = {title: 'lorem ipsum'};
 
   constructor(private eventService: EventService) { }
 
   ngOnInit(): void {
-    /* if(!this.eventService.eventDetails?.eventId){
+    /* if(!this.eventService.event?.eventId){
       this.caseChoiceModalOn = true;
     } else {
       this.event = this.eventService.getEvent();
