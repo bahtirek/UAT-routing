@@ -6,6 +6,7 @@ import { EventsDashComponent } from './events-dash/events-dash.component';
 import { RouterModule, Routes } from '@angular/router';
 import { EventsComponent } from './events.component';
 import { SearchEventModule } from 'src/app/shared/search-event/search-event.module';
+import { CreateEventModule } from './create-event/create-event.module';
 
 const routes: Routes = [
   { 
@@ -26,13 +27,13 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    CreateEventComponent,
     EventDeatilsComponent,
     EventsDashComponent
   ],
   imports: [
     CommonModule,
     SearchEventModule,
+    CreateEventModule,
     RouterModule.forChild(routes),
   ]
 })

@@ -27,4 +27,14 @@ export class EventService {
       return this.http.get<ServerResponse<Event[]>>(this.url + '/test-case-search', {params})
       .pipe(map(response => response?.result))
   }
+
+  setEvent(event: Event){
+    this.event = event;
+  }
+  updateEvent(event: Event){
+    this.event = event;
+  }
+  addEvent(event: Event){
+    this.event = event;
+  }
 }

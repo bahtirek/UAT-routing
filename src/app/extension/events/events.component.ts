@@ -24,7 +24,7 @@ export class EventsComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.router.navigate(['dashboard'], { relativeTo: this.route, skipLocationChange: true });
+    this.router.navigate(['create'], { relativeTo: this.route, skipLocationChange: true });
   }
 
   setBreadcrumb(event: NavigationStart): void {

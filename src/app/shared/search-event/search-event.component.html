@@ -1,6 +1,6 @@
 <div class="width-full">
   <div class="form-container">
-      <label for="label">Test case title</label>
+      <label for="label">Event title</label>
       <input type="text" name="label" [(ngModel)]="title" (ngModelChange)="titleSearch.next($event)"/>
       <div class="note-message" *ngIf="searchError">{{searchError}}</div>
       <span class="search-icon">

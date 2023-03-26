@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Event } from 'src/app/interfaces/event.interface';
 
 @Component({
   selector: 'app-create-event',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-event.component.less']
 })
 export class CreateEventComponent implements OnInit {
+
+  onCreate: boolean = true;
+  event: Event = {};
 
   constructor() { }
 
