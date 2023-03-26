@@ -3,7 +3,7 @@
   <div class="width-full">
       <div class="form-container">
           <label for="label">Description</label>
-          <textarea type="text" name="label" [(ngModel)]="description" ></textarea>
+          <textarea type="text" name="label" [(ngModel)]="description" rows="6"></textarea>
           <span class="form-error-message">
               <span *ngFor="let error of formError.title; index as i">{{error}}</span>
           </span>
