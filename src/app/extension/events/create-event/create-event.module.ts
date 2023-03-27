@@ -10,6 +10,7 @@ import { MoreButtonMenuModule } from 'src/app/shared/more-button-menu/more-butto
 import { CreateEventTitleComponent } from './event-title/create-event-title/create-event-title.component';
 import { FormsModule } from '@angular/forms';
 import { CreateEventDescriptionComponent } from './event-description/create-event-description/create-event-description.component';
+import { EnvironmentChoiceModule } from 'src/app/shared/environment-choice/environment-choice.module';
 
 
 
@@ -21,13 +22,14 @@ import { CreateEventDescriptionComponent } from './event-description/create-even
     EventMembersComponent,
     CreateEventComponent,
     CreateEventTitleComponent,
-    CreateEventDescriptionComponent
+    CreateEventDescriptionComponent,
   ],
   imports: [
     CommonModule,
     ModalModule,
     MoreButtonMenuModule,
-    FormsModule
+    FormsModule,
+    EnvironmentChoiceModule
   ],
   exports: [
     CreateEventComponent

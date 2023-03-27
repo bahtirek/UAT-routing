@@ -11,6 +11,7 @@ export class EventEnvironmentComponent implements OnInit {
 
   isEventEnvironmentModalOn: boolean = false;
   environment: Environment = {};
+  tempEnvironment: Environment = {};
   environmentToEdit: Environment;
   environments: Environment[] = [
     {environmentId: 1, name: 'Beta'},
@@ -25,6 +26,7 @@ export class EventEnvironmentComponent implements OnInit {
       display: true
     },
   ];
+  submitInProgress: boolean = false;
 
   constructor() { }
 
@@ -42,13 +44,17 @@ export class EventEnvironmentComponent implements OnInit {
     this.environment = {};
   }
 
-  saveEnvironment(environment: Environment){
-    this.environment = environment;
+  onEnvironmentChosed(environment: Environment){
+    this.tempEnvironment = environment;
+  }
+
+  onEnvironmentSave(){
+    this.environment = this.tempEnvironment
     this.environmentEmit.emit(this.environment)
     this.toggleModal();
   }
 
-  getenvironment(){
+  getEnvironment(){
     return this.environment;
   }
 

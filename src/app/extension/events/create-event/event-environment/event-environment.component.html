@@ -1,1 +1,45 @@
-<p>event-environment works!</p>
+<div>
+  <div class="card ">
+    <ng-container *ngIf="!environment.environmentId">
+      <div class="flex justify-end items-center">
+        <button (click)="addEnvironment()" class="btn-link">Event environment</button>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="environment.environmentId">
+      <div class="case-title flex items-center">
+        <span class="title-sm ">Environment: </span>
+        <div class="text-pre">{{environment.name}}</div>
+        <app-more-button-menu [actions]="actions" (onAction)="onAction($event)"></app-more-button-menu>
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<app-modal *ngIf="isEventEnvironmentModalOn" (closeModal)="toggleModal()">
+  <div>
+    <h3>Event Environment</h3>
+    <div class="width-full">
+      <app-environment-choice
+        [environment]="environmentToEdit" 
+        [environments]="environments"
+        (environmentEmit)="onEnvironmentChosed($event)">
+      </app-environment-choice>
+      <div class="btn-group">
+        <button 
+          data-listener="off" 
+          (click)="onEnvironmentSave()" 
+          [disabled]="submitInProgress"
+          [attr.aria-busy]="submitInProgress">
+          <span>Save</span>
+        </button>
+        <button 
+          class="btn-danger" 
+          data-listener="off" 
+          (click)="toggleModal()" 
+          [disabled]="submitInProgress">
+          <span>Cancel</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</app-modal>
