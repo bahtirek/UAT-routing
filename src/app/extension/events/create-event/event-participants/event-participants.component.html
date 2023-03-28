@@ -1,0 +1,41 @@
+<div>
+  <div class="card ">
+    <ng-container *ngIf="testers && testers.length > 0">
+      <div class="title-sm ">Participants: </div>
+      <div class="spacer-2"></div>
+      <div>
+        <div class="flex justify-between">
+          <div class="width-full flex">
+            <div class="width-25">
+              <span class="title-sm ">Email: </span>
+            </div>
+            <div class="width-25">
+              <span class="title-sm ">Browser: </span>
+            </div>
+            <div class="text-pre">
+              <span class="title-sm ">Instructions: </span>
+            </div>
+          </div>
+          <div class="dummy-block">
+          </div>
+        </div>
+        <div class="spacer-1"></div>
+        <div *ngFor="let tester of testers; index as i" class="case-title width-full flex justify-between">
+          <app-participants-details [tester]="tester" class="width-full"></app-participants-details>
+          <app-more-button-menu [actions]="actions" (onAction)="onAction($event, i)"></app-more-button-menu>
+          <div class="spacer-2"></div>
+        </div>
+        <div class="spacer-2"></div>
+      </div>
+      <div class="spacer-2"></div>
+    </ng-container>
+    <div class="flex justify-end">
+      <button (click)="addTester()" class="btn-link">Add participant</button>
+    </div>
+  </div>
+</div>
+
+<app-modal *ngIf="isAddTesterModalOn" (closeModal)="toggleModal()" [propClass]="'width-full'">
+  <app-add-participants (cancel)="toggleModal()" [testerToEdit]="testerToEdit" (testerEmit)="saveTester($event)">
+  </app-add-participants>
+</app-modal>

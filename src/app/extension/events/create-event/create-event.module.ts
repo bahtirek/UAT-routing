@@ -11,6 +11,9 @@ import { CreateEventTitleComponent } from './event-title/create-event-title/crea
 import { FormsModule } from '@angular/forms';
 import { CreateEventDescriptionComponent } from './event-description/create-event-description/create-event-description.component';
 import { EnvironmentChoiceModule } from 'src/app/shared/environment-choice/environment-choice.module';
+import { EventParticipantsComponent } from './event-participants/event-participants.component';
+import { AddParticipantsComponent } from './event-participants/add-participants/add-participants.component';
+import { ParticipantsDetailsComponent } from './event-participants/participants-details/participants-details.component';
 
 
 
@@ -23,6 +26,9 @@ import { EnvironmentChoiceModule } from 'src/app/shared/environment-choice/envir
     CreateEventComponent,
     CreateEventTitleComponent,
     CreateEventDescriptionComponent,
+    EventParticipantsComponent,
+    AddParticipantsComponent,
+    ParticipantsDetailsComponent,
   ],
   imports: [
     CommonModule,

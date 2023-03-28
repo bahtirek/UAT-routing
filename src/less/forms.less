@@ -18,7 +18,7 @@ textarea {
 }
 
 // Commons styles
-input,
+input:not([type="checkbox"]),
 select,
 textarea {
   border: 1px solid var(--text-lightest);
@@ -36,7 +36,11 @@ textarea {
   }
 }
 
-label {
+[type="checkbox"] {
+  margin-right: 20px;
+}
+
+label:not(.checkbox) {
   position: absolute;
   top: -7px;
   left: 7px;

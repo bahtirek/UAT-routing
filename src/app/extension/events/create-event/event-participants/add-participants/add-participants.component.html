@@ -1,0 +1,36 @@
+<div>
+  <h3>Participant</h3>
+  <div class="spacer-2"></div>
+  <div class="width-full">
+      <div class="form-container">
+          <label for="label">Email</label>
+          <input type="email" name="label" [(ngModel)]="testerEmail" />
+          <span class="form-error-message">
+              <!-- <span *ngFor="let error of formError.title; index as i">{{error}}</span> -->
+          </span>
+          
+      </div>
+      <div class="spacer-2"></div>
+      <div class="flex flex-wrap">
+          <div *ngFor="let browser of browsers; index as i" class="width-half">
+              <div class="form-container checkbox flex items-center">
+                <input type="checkbox" name="browser{{browser.name}}" [(ngModel)]="browser.state">
+                <label for="browser{{browser.name}}" class="checkbox">{{browser.name}}</label>
+              </div>
+          </div>
+      </div>     
+      <div class="spacer-2"></div>
+      <div class="form-container">
+          <label for="instructions">Special instructions</label>
+          <textarea name="instructions" [(ngModel)]="tester.instructions" rows="4" ></textarea>
+      </div>
+      <div class="btn-group">
+        <button class=""  data-listener="off" (click)="onSaveTester()" [disabled]="submitInProgress" [attr.aria-busy]="submitInProgress">
+            <span>Save</span> 
+        </button>
+        <button class="btn-danger"  data-listener="off" (click)="onCancel()" [disabled]="submitInProgress" >
+            <span>Cancel</span> 
+        </button>
+    </div>
+  </div>
+</div>

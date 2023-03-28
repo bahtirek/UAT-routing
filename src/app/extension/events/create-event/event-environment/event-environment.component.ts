@@ -10,7 +10,7 @@ import { MoreButtonAction } from 'src/app/interfaces/more-button-action.interfac
 export class EventEnvironmentComponent implements OnInit {
 
   isEventEnvironmentModalOn: boolean = false;
-  environment: Environment = {};
+  environment: Environment = {environmentId: 1, name: 'Beta'};
   tempEnvironment: Environment = {};
   environmentToEdit: Environment;
   environments: Environment[] = [

@@ -1,0 +1,11 @@
+<div class="flex no-wrap">
+  <div class="width-25">{{tester.email}}</div>
+  <div class="width-25">
+    <ul>
+      <ng-container *ngFor="let browser of tester.browsers">
+        <li *ngIf="browser.state">{{browser.name}}</li>
+      </ng-container>
+    </ul>
+  </div>
+  <div class="text-pre">{{tester.instructions}}</div>
+</div>
