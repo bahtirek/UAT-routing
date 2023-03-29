@@ -42,6 +42,8 @@ export class EventParticipantsComponent implements OnInit {
       this.testers[this.testerToEditIndex] = tester;
       this.testerToEditIndex = null;
       this.testerToEdit = null;
+      console.log(this.testerToEdit);
+      
     } else {
       this.testers.push(tester)
     }

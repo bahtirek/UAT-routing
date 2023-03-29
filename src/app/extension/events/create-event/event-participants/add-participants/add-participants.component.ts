@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, Subject } from 'rxjs';
 import { Browser } from 'src/app/interfaces/device.interface';
 import { Tester } from 'src/app/interfaces/tester.interface';
@@ -11,59 +11,72 @@ import { Tester } from 'src/app/interfaces/tester.interface';
 })
 export class AddParticipantsComponent implements OnInit {
 
-  browsers: Browser[] = [
+  browsersList: Browser[] = [
     {
       id: 1,
-      name: 'Chrome Desktop'
+      name: 'Chrome Desktop',
+      state: false
     },
     {
       id: 2,
-      name: 'Safari Desktop'
+      name: 'Safari Desktop',
+      state: false
     },
     {
       id: 3,
-      name: 'Firefox Desktop'
+      name: 'Firefox Desktop',
+      state: false
     },
     {
       id: 4,
-      name: 'Edge Desktop'
+      name: 'Edge Desktop',
+      state: false
     },
     {
       id: 5,
-      name: 'Chrome Mobile'
+      name: 'Chrome Mobile',
+      state: false
     },
     {
       id: 6,
-      name: 'Safari Mobile'
+      name: 'Safari Mobile',
+      state: false
     },
   ]
   tester: Tester = {};
   testerEmail: string = ''
   testerSearch = new Subject<string>();
-  instructions: string = '';
+  //instructions: string = '';
   submitInProgress: boolean = false;
 
-  constructor(private fb: FormBuilder) { }
+  get email() {
+    return this.participantForm.get('email');
+  }
+  get browsers() {
+    return this.participantForm.get('browsers') as FormArray;
+  }
+  get instructions() {
+    return this.participantForm.get('instructions');
+  }
+
+
+  participantForm: FormGroup = this.fb.group({
+    email: ['', [Validators.required, Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) ]],
+    instructions: [''],
+    browsers: this.fb.array ([])
+  }); 
+
+  constructor(private fb: FormBuilder ) { }
+
 
   ngOnInit(): void {
-  }
-
-  ngOnChanges(changes: SimpleChanges){
-    if (changes.testerToEdit && changes.testerToEdit.currentValue) {
-      this.tester = {...this.testerToEdit}
-      const browsersToEdit = [...this.tester.browsers]
-      this.tester.browsers.forEach((browserToEdit) => {
-        const index = this.browsers.findIndex(browser => browser.id == browserToEdit.id);
-        if ( browserToEdit.state ) this.browsers[index].state = true;
-      })
+    if (this.testerToEdit) {
+      this.setBrowsersControlArray(this.testerToEdit.browsers)
+      this.email.setValue(this.testerToEdit.email)
+      this.instructions.setValue(this.testerToEdit.instructions)
+    } else {
+      this.setBrowsersControlArray(this.browsersList);
     }
-  }
-
-  ngAfterViewInit(){
-    this.testerSearch.pipe(debounceTime(400), distinctUntilChanged())
-    .subscribe(value => {
-      console.log(this.testerEmail);
-    });
   }
 
   @Input() public testerToEdit: Tester;
@@ -80,10 +93,22 @@ export class AddParticipantsComponent implements OnInit {
   }
 
   onSaveTester(){
-    this.tester.browsers = this.browsers;
-    this.tester.email = this.testerEmail;
+    this.tester.browsers = this.browsers.value;
+    this.tester.email = this.email.value;
+    this.tester.instructions = this.instructions.value;
     this.testerEmit.emit(this.tester);
     this.onCancel();
+  }
+
+  setBrowsersControlArray(browsersList: Browser[]){
+    browsersList.forEach((item) => {
+      let result = this.fb.group({
+        state: [item.state],
+        id: [item.id],
+        name: [item.name],
+      })
+      this.browsers.push(result);
+    })
   }
 
   onCancel(){

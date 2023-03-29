@@ -8,7 +8,7 @@ import { CreateEventComponent } from './create-event.component';
 import { ModalModule } from 'src/app/shared/modal/modal.module';
 import { MoreButtonMenuModule } from 'src/app/shared/more-button-menu/more-button-menu.module';
 import { CreateEventTitleComponent } from './event-title/create-event-title/create-event-title.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateEventDescriptionComponent } from './event-description/create-event-description/create-event-description.component';
 import { EnvironmentChoiceModule } from 'src/app/shared/environment-choice/environment-choice.module';
 import { EventParticipantsComponent } from './event-participants/event-participants.component';
@@ -35,7 +35,8 @@ import { ParticipantsDetailsComponent } from './event-participants/participants-
     ModalModule,
     MoreButtonMenuModule,
     FormsModule,
-    EnvironmentChoiceModule
+    EnvironmentChoiceModule,
+    ReactiveFormsModule
   ],
   exports: [
     CreateEventComponent
