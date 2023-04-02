@@ -40,10 +40,10 @@ export class EventTitleComponent implements OnInit {
   }
 
   onCreateCancel(){
-    if (this.eventToEdit?.eventId) {
+    if (this.eventToEdit?.title) {
       this.toggleAddeventModal();
     } else {
-      this.router.navigate(['./test-case/dashboard'], { skipLocationChange: true });
+      this.router.navigate(['./event/dashboard'], { skipLocationChange: true });
     }
   }
 

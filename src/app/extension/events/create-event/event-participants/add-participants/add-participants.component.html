@@ -6,7 +6,7 @@
       <div class="form-container">
         <label for="label">Email</label>
         <input type="email" name="email" formControlName="email" id="email" />
-        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="ui-br-ext-message">
+        <div *ngIf="email.invalid && (email.dirty || email.touched)" class="form-error-message">
           <div *ngIf="email.errors?.['required']">
             Email is required.
           </div>

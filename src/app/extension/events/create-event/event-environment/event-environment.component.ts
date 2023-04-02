@@ -49,9 +49,13 @@ export class EventEnvironmentComponent implements OnInit {
   }
 
   onEnvironmentSave(){
-    this.environment = this.tempEnvironment
-    this.environmentEmit.emit(this.environment)
-    this.toggleModal();
+    if(this.tempEnvironment.environmentId) {
+      this.environment = this.tempEnvironment
+      this.environmentEmit.emit(this.environment)
+      this.toggleModal();
+    } else {
+      this.toggleModal();
+    }
   }
 
   getEnvironment(){
