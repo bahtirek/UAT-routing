@@ -64,7 +64,7 @@ export class StepService {
   }
 
   async saveStep(step: TestStep, stepIndex?: number){
-    if(step.testStepId) {
+    /* if(step.testStepId) {
       const existingStep = this.steps.find((item: TestStep) => item.testStepId == step.testStepId);
       existingStep.description = step.description;
       existingStep.expected = step.expected;
@@ -80,30 +80,30 @@ export class StepService {
         this.steps[this.steps.length - 1].order = this.steps.length - 1;
         this.stepsSource.next(this.steps);
       }
-    }
+    } */
   }
 
   moveStep(index: number){
-    const element2 = this.steps[index-1]
+    /* const element2 = this.steps[index-1]
     const element = this.steps.splice(index, 1)[0];    
 
     element.order= element.order - 1;
     element2.order= element2.order + 1;
 
     this.steps.splice(element.order, 0, element);
-    this.stepsSource.next(this.steps);
+    this.stepsSource.next(this.steps); */
   }
 
   async deleteStep(testStepId: number){
-    const index = this.steps.findIndex((step: TestStep) => step.testStepId== testStepId)
+    /* const index = this.steps.findIndex((step: TestStep) => step.testStepId== testStepId)
     this.steps.splice(index, 1);
     this.steps = await this.assignIndexAsOrder([...this.steps]);
-    this.stepsSource.next(this.steps);
+    this.stepsSource.next(this.steps); */
   }
 
   async importSteps(testStepId: number, stepIndex?: number){
     //const steps = this.getSteps(id);
-    const array: any = await this.sortSteps(JSON.parse(JSON.stringify(this.steps2)))
+    /* const array: any = await this.sortSteps(JSON.parse(JSON.stringify(this.steps2)))
     if(stepIndex) {
       this.steps.splice(stepIndex + 1, 0, ...array );
       this.steps = await this.assignIndexAsOrder([...this.steps]);
@@ -112,7 +112,7 @@ export class StepService {
       this.steps  = this.steps.concat(array);
       this.steps = await this.assignIndexAsOrder([...this.steps]);
       this.stepsSource.next(this.steps);
-    }
+    } */
   }
 
   getSteps(id?: number){

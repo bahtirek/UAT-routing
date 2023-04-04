@@ -1,7 +1,13 @@
-<app-event-title [onCreate]="onCreate" [eventProp]="event"></app-event-title>
+<div class="card ">
+  <app-event-title [onCreate]="onCreate" [eventProp]="event"></app-event-title>
+  <ng-container *ngIf="event.title">
+    <div class="spacer-2"></div>
+    <app-event-description (descriptionEmit)="saveDescription($event)"></app-event-description>
+    <div class="spacer-2"></div>
+    <app-event-environment (environmentEmit)="saveEnvironment($event)"></app-event-environment>
+  </ng-container>
+</div>
 
 <ng-container *ngIf="event.title">
-  <app-event-description (descriptionEmit)="saveDescription($event)"></app-event-description>
-  <app-event-environment (environmentEmit)="saveEnvironment($event)"></app-event-environment>
   <app-event-participants></app-event-participants>
 </ng-container>

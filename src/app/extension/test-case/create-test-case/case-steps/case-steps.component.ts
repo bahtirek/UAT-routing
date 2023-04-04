@@ -132,18 +132,22 @@ export class CaseStepsComponent implements OnInit {
       testSteps: [
         {
           testStepId: this.testCase.testStepOrder[index].testStepId,
-          order: this.testCase.testStepOrder[index].order - 1
+          importedTestCaseId: this.testCase.testStepOrder[index].importedTestCaseId,
+          existingOrder: this.testCase.testStepOrder[index].order,
+          newOrder: this.testCase.testStepOrder[index].order - 1
         },
         {
           testStepId: this.testCase.testStepOrder[index - 1].testStepId,
-          order: this.testCase.testStepOrder[index - 1].order + 1
+          importedTestCaseId: this.testCase.testStepOrder[index - 1].importedTestCaseId,
+          existingOrder: this.testCase.testStepOrder[index - 1].order,
+          newOrder: this.testCase.testStepOrder[index - 1].order + 1
         },
       ]
     }
 
     this.testCaseService.changeStepOrder(ordersToUpdate).subscribe(
       response => {
-        this.testCaseService.testCaseSource.next(response)
+        this.testCaseService.setTestCase(response)
       },
     )
   }
@@ -156,11 +160,15 @@ export class CaseStepsComponent implements OnInit {
       testSteps: [
         {
           testStepId: this.testCase.testStepOrder[index].testStepId,
-          order: this.testCase.testStepOrder[index].order + 1
+          importedTestCaseId: this.testCase.testStepOrder[index].importedTestCaseId,
+          existingOrder: this.testCase.testStepOrder[index].order,
+          newOrder: this.testCase.testStepOrder[index].order + 1
         },
         {
           testStepId: this.testCase.testStepOrder[index + 1].testStepId,
-          order: this.testCase.testStepOrder[index + 1].order - 1
+          importedTestCaseId: this.testCase.testStepOrder[index + 1].importedTestCaseId,
+          existingOrder: this.testCase.testStepOrder[index + 1].order,
+          newOrder: this.testCase.testStepOrder[index + 1].order - 1
         },
       ]
     }
@@ -168,7 +176,7 @@ export class CaseStepsComponent implements OnInit {
     this.testCaseService.changeStepOrder(ordersToUpdate).subscribe(
       response => {
         console.log(response);
-        this.testCaseService.testCaseSource.next(response)
+        this.testCaseService.setTestCase(response)
       },
     )
   }

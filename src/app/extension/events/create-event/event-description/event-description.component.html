@@ -1,5 +1,5 @@
 <div>
-  <div class="card ">
+  <!-- <div class="card "> -->
     <ng-container *ngIf="!description">
       <div class="flex justify-end items-center">
         <button (click)="addDescription()" class="btn-link">Event description</button>
@@ -12,7 +12,7 @@
         <app-more-button-menu [actions]="actions" (onAction)="onAction($event)"></app-more-button-menu>
       </div>
     </ng-container>
-  </div>
+ <!--  </div> -->
 </div>
 
 <app-modal *ngIf="isEventDescriptionModalOn" (closeModal)="toggleModal()"  [propClass]="'width-full'">

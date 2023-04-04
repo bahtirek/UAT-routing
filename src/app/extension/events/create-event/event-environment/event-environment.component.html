@@ -1,5 +1,5 @@
 <div>
-  <div class="card ">
+  <!-- <div class="card "> -->
     <ng-container *ngIf="!environment.environmentId">
       <div class="flex justify-end items-center">
         <button (click)="addEnvironment()" class="btn-link">Event environment</button>
@@ -12,7 +12,7 @@
         <app-more-button-menu [actions]="actions" (onAction)="onAction($event)"></app-more-button-menu>
       </div>
     </ng-container>
-  </div>
+  <!-- </div> -->
 </div>
 
 <app-modal *ngIf="isEventEnvironmentModalOn" (closeModal)="toggleModal()">
