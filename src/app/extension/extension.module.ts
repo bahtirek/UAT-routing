@@ -8,6 +8,7 @@ import { RegressionComponent } from './regression/regression.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ExecuteComponent } from './execute/execute.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ToasterModule } from '../shared/toaster/toaster.module';
 
 
 const routes: Routes = [
@@ -72,7 +73,12 @@ const routes: Routes = [
   imports: [
     CommonModule,
     MenuModule,
+    ToasterModule,
     RouterModule.forChild(routes),
   ],
+  exports: [
+    ExtensionComponent
+  ]
+  
 })
 export class ExtensionModule { }
