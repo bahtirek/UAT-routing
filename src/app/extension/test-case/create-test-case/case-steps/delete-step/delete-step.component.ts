@@ -31,7 +31,6 @@ export class DeleteStepComponent implements OnInit {
         this.onCancel();
       },
       error => {
-        this.toaster.show('error', 'Sorry!', 'Something went wrong. Please try later. ');
         this.submitInProgress = false;
       }
     )
