@@ -9,6 +9,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { ExecuteComponent } from './execute/execute.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToasterModule } from '../shared/toaster/toaster.module';
+import { LoaderModule } from '../shared/loader/loader.module';
 
 
 const routes: Routes = [
@@ -74,6 +75,7 @@ const routes: Routes = [
     CommonModule,
     MenuModule,
     ToasterModule,
+    LoaderModule,
     RouterModule.forChild(routes),
   ],
   exports: [

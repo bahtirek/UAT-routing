@@ -33,7 +33,7 @@
     </form>
     <div class="btn-group">
       <button class="" data-listener="off" (click)="onSaveTester()" [disabled]="submitInProgress || participantForm.invalid"
-        [attr.aria-busy]="submitInProgress">
+        >
         <span>Save</span>
       </button>
       <button class="btn-danger" data-listener="off" (click)="onCancel()" [disabled]="submitInProgress">

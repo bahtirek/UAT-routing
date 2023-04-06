@@ -49,7 +49,7 @@
 <app-modal *ngIf="deleteModalOn" (closeModal)="toggleDeleteModal()" >
   <h3>Delete test case</h3>
   <div class="btn-group">
-    <button class=""  data-listener="off" (click)="onDeleteTestCase()" [disabled]="submitInProgress" [attr.aria-busy]="submitInProgress">
+    <button class=""  data-listener="off" (click)="onDeleteTestCase()" [disabled]="submitInProgress" >
         <span>Delete</span> 
     </button>
     <button class="btn-danger"  data-listener="off" (click)="toggleDeleteModal()">

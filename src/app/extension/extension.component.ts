@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { LoaderService } from '../shared/loader/loader.service';
 import { ToasterService } from '../shared/toaster/toaster.service';
 
 @Component({
@@ -9,7 +10,9 @@ import { ToasterService } from '../shared/toaster/toaster.service';
 })
 export class ExtensionComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  loading = this.loader.isLoading;
+
+  constructor(private router: Router, private route: ActivatedRoute, private loader: LoaderService) { }
 
   ngOnInit(): void {
     this.router.navigate(['test-case'], { relativeTo: this.route, skipLocationChange: true });

@@ -12,6 +12,7 @@ import { SettingsModule } from './extension/settings/settings.module';
 import { RegressionModule } from './extension/regression/regression.module';
 import { ExecuteModule } from './extension/execute/execute.module';
 import { EventsModule } from './extension/events/events.module';
+import { httpInterceptorProviders } from './interceptors';
 
 declare global {
   interface Window {
@@ -43,7 +44,7 @@ declare global {
       scrollPositionRestoration: 'top'
     })
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
   exports:[
   ]
