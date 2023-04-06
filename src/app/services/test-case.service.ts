@@ -65,7 +65,8 @@ export class TestCaseService {
     .pipe(map(response => response?.result))
   }
 
-  addTestStep(testStep: TestStep){
+  addTestStep(testStep: TestStep, order: number){
+    testStep.order = order;
     return this.http.post<ServerResponse<TestCase>>(this.url + '/test-step', testStep)
     .pipe(map(response => response?.result))
   }

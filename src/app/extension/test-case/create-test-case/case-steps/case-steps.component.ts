@@ -18,7 +18,7 @@ export class CaseStepsComponent implements OnInit {
   isDeleteModalOn: boolean = false;
   importsReviewModalOn: boolean = false;
   stepToDelete: TestStep;
-  stepIndex: number;
+  stepOrder: number;
   actions: MoreButtonAction[] = [
     {
       name: 'Edit',
@@ -58,6 +58,16 @@ export class CaseStepsComponent implements OnInit {
       display: true
     },
     {
+      name: 'Add',
+      action: 'add',
+      display: true
+    },
+    {
+      name: 'Import',
+      action: 'import',
+      display: true
+    },
+    {
       name: 'Move up',
       action: 'up',
       display: true
@@ -89,17 +99,17 @@ export class CaseStepsComponent implements OnInit {
   @ViewChild(ImportStepsComponent) importSteps!: ImportStepsComponent;
 
   toggleModal(val: string){
-    if(val == 'addnewStepModal'){
+    if(val == 'addNewStepModal'){
       this.isAddStepModalOn = !this.isAddStepModalOn;
       if(!this.isAddStepModalOn) {
         this.stepToEdit = {};
-        this.stepIndex = null;
+        this.stepOrder = null;
       }
     } else if(val == 'deleteStepModal'){
       this.isDeleteModalOn = !this.isDeleteModalOn;
       if(!this.isDeleteModalOn) {
         this.stepToEdit = {};
-        this.stepIndex = null;
+        this.stepOrder = null;
       }
     } else if(val == 'importsReviewModal'){
       this.importsReviewModalOn = !this.importsReviewModalOn;
@@ -111,12 +121,17 @@ export class CaseStepsComponent implements OnInit {
 
   onStepEdit(step: TestStep){
     this.stepToEdit = {...step};
-    this.toggleModal('addnewStepModal');
+    this.toggleModal('addNewStepModal');
   }
 
   onStepAdd(index?: number){
-    if(index) this.stepIndex = index;
-    this.toggleModal('addnewStepModal')
+    if(index == undefined) {
+      let length = this.testCase.testStepOrder?.length || 0;
+      this.stepOrder = length + 1;
+    } else {
+      this.stepOrder = index + 2;
+    }
+    this.toggleModal('addNewStepModal')
   }
 
   onDeleteStep(index: number){
@@ -181,9 +196,15 @@ export class CaseStepsComponent implements OnInit {
     )
   }
   
-  onImportSteps(){
-    let length = this.testCase.testStepOrder?.length || 0;
-    this.testCaseService.stepOrderForImport = length + 1;
+  onImportSteps(index?: number){
+    console.log(index);
+    
+    if(index == undefined) {
+      let length = this.testCase.testStepOrder?.length || 0;
+      this.testCaseService.stepOrderForImport = length + 1;
+    } else {
+      this.testCaseService.stepOrderForImport = index + 2;
+    }
     this.importSteps.toggleModal()
   }
 
@@ -212,7 +233,7 @@ export class CaseStepsComponent implements OnInit {
     switch (event) {
       case 'edit': this.onStepEdit(this.testCase.testStepOrder[index].test_step); break;
       case 'add': this.onStepAdd(index); break;
-      case 'import': this.onImportSteps(); break;
+      case 'import': this.onImportSteps(index); break;
       case 'up': this.moveStepUp(index); break;
       case 'down': this.moveStepDown(index); break;
       case 'delete': this.onDeleteStep(index); break;
@@ -222,6 +243,8 @@ export class CaseStepsComponent implements OnInit {
   onImportAction(event: string, step: TestStepOrder, index: number){
     switch (event) {
       case 'review': this.onImportsReview(step); break;
+      case 'add': this.onStepAdd(index); break;
+      case 'import': this.onImportSteps(index); break;
       case 'up': this.moveStepUp(index); break;
       case 'down': this.moveStepDown(index); break;
       case 'delete': this.onImportDeleteStep(index); break;

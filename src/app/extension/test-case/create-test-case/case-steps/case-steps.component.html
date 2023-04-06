@@ -43,8 +43,8 @@
     <a (click)="onStepAdd()">Add new step</a>
   </div>
 </div>
-<app-modal *ngIf="isAddStepModalOn" (closeModal)="toggleModal('addnewStepModal')" [propClass]="'width-full'">
-  <app-create-step (cancel)="toggleModal('addnewStepModal')" [stepToEdit]="stepToEdit" [stepIndex]="stepIndex"
+<app-modal *ngIf="isAddStepModalOn" (closeModal)="toggleModal('addNewStepModal')" [propClass]="'width-full'">
+  <app-create-step (cancel)="toggleModal('addNewStepModal')" [stepToEdit]="stepToEdit" [stepOrder]="stepOrder"
     [testCaseId]="testCase?.testCaseId"></app-create-step>
 </app-modal>
 <app-modal *ngIf="isDeleteModalOn" (closeModal)="toggleModal('deleteStepModal')">

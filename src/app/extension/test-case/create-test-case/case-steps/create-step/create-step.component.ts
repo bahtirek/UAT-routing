@@ -34,7 +34,7 @@ export class CreateStepComponent implements OnInit {
   }
 
   @Input() stepToEdit: TestStep = {};
-  @Input() stepIndex: number;
+  @Input() stepOrder: number;
   @Input() testCaseId: number;
 
   @Output() cancel = new EventEmitter<null>();
@@ -70,7 +70,7 @@ export class CreateStepComponent implements OnInit {
   }
 
   addTestStep(step: TestStep){
-    this.testCaseService.addTestStep(step).subscribe(
+    this.testCaseService.addTestStep(step, this.stepOrder).subscribe(
       response => {
         this.submitClicked = false;
         this.submitInProgress = false;
