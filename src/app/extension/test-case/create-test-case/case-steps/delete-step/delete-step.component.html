@@ -3,11 +3,11 @@
     <div class="width-full">
         <p>{{stepToDelete.description}}</p>
         <div class="btn-group">
-            <button class=""  data-listener="off" (click)="delete()" [disabled]="submitInProgress">
+            <button class=""  data-listener="off" (click)="delete()" >
                 <span class="ui-br-ext-spinner" [ngClass]="{'active': submitInProgress}"></span>
                 <span>Delete</span> 
             </button>
-            <button class="btn-danger"  data-listener="off" (click)="onCancel()" [disabled]="submitInProgress">
+            <button class="btn-danger"  data-listener="off" (click)="onCancel()" >
                 <span class="ui-br-ext-spinner"></span>
                 <span>Cancel</span> 
             </button>

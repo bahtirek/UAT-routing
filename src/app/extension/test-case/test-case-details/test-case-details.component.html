@@ -22,8 +22,8 @@
       <div class="ui-uat-ext-step" *ngFor="let step of testCase?.testStepOrder; index as i">
         <ng-container *ngIf="!step.importedTestCaseId">
           <div class="ui-uat-ext-step-number">{{i + 1}}</div>
-          <div class="ui-uat-ext-step-description">{{step.test_step.description}}</div>
-          <div class="ui-uat-ext-step-expectedResults">{{step.test_step.expected}}</div>
+          <div class="ui-uat-ext-step-description">{{step.test_step?.description}}</div>
+          <div class="ui-uat-ext-step-expectedResults">{{step.test_step?.expected}}</div>
         </ng-container>
         <ng-container *ngIf="step.importedTestCaseId">
           <div class="ui-uat-ext-step-number">{{i + 1}}</div>
@@ -49,7 +49,7 @@
 <app-modal *ngIf="deleteModalOn" (closeModal)="toggleDeleteModal()" >
   <h3>Delete test case</h3>
   <div class="btn-group">
-    <button class=""  data-listener="off" (click)="onDeleteTestCase()" [disabled]="submitInProgress" >
+    <button class=""  data-listener="off" (click)="onDeleteTestCase()"  >
         <span>Delete</span> 
     </button>
     <button class="btn-danger"  data-listener="off" (click)="toggleDeleteModal()">
