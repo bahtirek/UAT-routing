@@ -26,7 +26,7 @@ export class CreateTestCaseComponent implements OnInit {
 
   ngOnInit(): void {
     if(!this.testCaseService.testCaseDetails?.testCaseId){
-      this.caseChoiceModalOn = true;
+      this.onCreate = true;
     } else {
       this.testCase = this.testCaseService.getTestCase();
     }
@@ -36,7 +36,7 @@ export class CreateTestCaseComponent implements OnInit {
   }
 
   onCreateClick(){
-    this.toggleModal();
+    //this.toggleModal();
     this.onCreate = true;
   }
 
