@@ -17,7 +17,7 @@ export class CaseStepsComponent implements OnInit {
   isAddStepModalOn: boolean = false;
   isDeleteModalOn: boolean = false;
   importsReviewModalOn: boolean = false;
-  stepToDelete: TestStep;
+  stepToDelete: TestStep = {};
   stepOrder: number;
   actions: MoreButtonAction[] = [
     {
@@ -136,6 +136,7 @@ export class CaseStepsComponent implements OnInit {
 
   onDeleteStep(index: number){
     this.stepToDelete = this.testCase.testStepOrder[index].test_step;
+    this.stepToDelete.order = this.testCase.testStepOrder[index].order;
     this.isDeleteModalOn = true;
   }
 
@@ -208,14 +209,6 @@ export class CaseStepsComponent implements OnInit {
     this.importSteps.toggleModal()
   }
 
-  async importCase(testCase: TestCase){
-    
-  }
-
-  getImprotedSteps(id: number){
-    
-  }
-
   onImportsReview(importedCase: TestStepOrder) {
     this.testCaseService.getTestCaseById(importedCase.importedTestCaseId).subscribe(
       response => {
@@ -226,7 +219,10 @@ export class CaseStepsComponent implements OnInit {
   }
 
   onImportDeleteStep(index: number) {
-    throw new Error('Method not implemented.');
+    this.stepToDelete.description = this.testCase.testStepOrder[index].importedCaseTitle;
+    this.stepToDelete.testCaseId = this.testCase.testCaseId;
+    this.stepToDelete.order = this.testCase.testStepOrder[index].order;
+    this.isDeleteModalOn = true;
   }
   
   onAction(event: string, index: number){
@@ -250,7 +246,5 @@ export class CaseStepsComponent implements OnInit {
       case 'delete': this.onImportDeleteStep(index); break;
     }
   }
-
-
 
 }

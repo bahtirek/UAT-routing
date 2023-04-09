@@ -79,7 +79,7 @@ export class TestCaseService {
   deleteTestStep(testStep: TestStep){
     const params = new HttpParams()
     .set('testCaseId', testStep.testCaseId)
-    .set('testStepId', testStep.testStepId);
+    .set('order', testStep.order);
     return this.http.delete<ServerResponse<TestCase>>(this.url + '/test-step', {params})
     .pipe(map(response => response?.result))
   }
