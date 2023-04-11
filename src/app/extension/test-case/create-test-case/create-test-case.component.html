@@ -1,8 +1,12 @@
-<app-case-title [onCreate]="onCreate" [testCaseProp]="testCase"></app-case-title>
-<ng-container *ngIf="testCase.title">
-    <br>
-    <app-case-steps></app-case-steps>
-</ng-container>
+<div class="flex">
+    <app-folder-tree></app-folder-tree>
+    <div>
+        <app-case-title [onCreate]="onCreate" [testCaseProp]="testCase"></app-case-title>
+        <ng-container *ngIf="testCase.title">
+            <app-case-steps></app-case-steps>
+        </ng-container>
+    </div>
+</div>
 
 <app-modal *ngIf="caseChoiceModalOn" (closeModal)="closeModal()">
   <div>
