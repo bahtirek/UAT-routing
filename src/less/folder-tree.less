@@ -1,0 +1,41 @@
+.folder-tree {
+  padding-left: 20px;
+  .folder-name {
+    display: flex;
+    align-items: center;  
+    margin-block: 4px;
+
+    .folder-svg  {
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+      svg {
+        transition: all .1s ease-in-out;
+      }
+      &.expand {
+        svg {
+          transform: rotate(90deg);
+        }
+      }
+    }
+    .form-container {
+      padding-bottom: 0;
+      display: flex;
+      align-items: center;
+      margin-left: 10px;
+      padding-top: 1px;
+    }
+
+    &.active {
+      color: #17b546;
+      font-weight: bold;
+    }
+  }
+
+  .hide {
+    display: none;
+  }
+
+  .sub-folders {
+  }
+}
