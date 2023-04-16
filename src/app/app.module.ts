@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { RouterModule } from '@angular/router';
 import { ExtensionModule } from './extension/extension.module';
 import { AuthModule } from './auth/auth.module';
 import { TestCaseModule } from './extension/test-case/test-case.module';
@@ -13,12 +12,13 @@ import { RegressionModule } from './extension/regression/regression.module';
 import { ExecuteModule } from './extension/execute/execute.module';
 import { EventsModule } from './extension/events/events.module';
 import { httpInterceptorProviders } from './interceptors';
+import { AppRoutingModule } from './app-routing.module';
 
-declare global {
+/* declare global {
   interface Window {
     selectButtonComponent?: any;
   }
-}
+} */
 
 @NgModule({
   declarations: [
@@ -28,21 +28,15 @@ declare global {
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
-    ExtensionModule,
+    FormsModule,
+    AppRoutingModule,
     AuthModule,
+    ExtensionModule,
     TestCaseModule,
     SettingsModule,
-    FormsModule,
     RegressionModule,
     ExecuteModule,
     EventsModule,
-    RouterModule.forRoot([
-      { path: '', redirectTo: '/auth', pathMatch: 'full' },
-      { path: 'extension', loadChildren: () => import('./extension/extension.module').then(m => m.ExtensionModule) },
-      { path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-    ], {
-      scrollPositionRestoration: 'top'
-    })
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent],
