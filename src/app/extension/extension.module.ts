@@ -16,47 +16,33 @@ const routes: Routes = [
   { 
     path: '', component: ExtensionComponent,
     children: [
-      
+      {
+        path: '',
+        redirectTo: '/dashboard',
+        pathMatch: 'full'
+      },
       {
         path: 'test-case', 
         loadChildren: () => import('./test-case/test-case.module').then(m => m.TestCaseModule),
-        data: {
-          breadcrumb: 'Test Case'
-        }
       },
       {
         path: 'events', 
         loadChildren: () => import('./events/events.module').then(m => m.EventsModule),
-        data: {
-          breadcrumb: 'Events'
-        }
       },
       {
         path: 'regression', 
         loadChildren: () => import('./regression/regression.module').then(m => m.RegressionModule) ,
-        data: {
-          breadcrumb: 'Regression'
-        }
       },
       {
         path: 'settings', 
         loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule),
-        data: {
-          breadcrumb: 'Settings'
-        }
       },
       {
         path: 'execute', 
         loadChildren: () => import('./execute/execute.module').then(m => m.ExecuteModule),
-        data: {
-          breadcrumb: 'Execute'
-        }
       },
       {
         path: 'dashboard', component: DashboardComponent,
-        data: {
-          breadcrumb: 'Dashboard'
-        }
       },
     ] 
   }

@@ -8,6 +8,7 @@ export class AuthService {
 
   token: string = "token";
   jwtHelper = new JwtHelperService();
+  redirectUrl: string;
 
   constructor() { }
 
