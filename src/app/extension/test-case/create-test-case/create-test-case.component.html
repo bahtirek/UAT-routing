@@ -1,22 +1,9 @@
+
+<div class="card no-left-margin">
+    <app-folder-tree [showFolders]="showFolders" (folderSaved)="folderSaved($event)"></app-folder-tree>
+</div>
 <app-case-title [onCreate]="onCreate" [testCaseProp]="testCase"></app-case-title>
 <ng-container *ngIf="testCase.title">
     <br>
     <app-case-steps></app-case-steps>
 </ng-container>
-
-<app-modal *ngIf="caseChoiceModalOn" (closeModal)="closeModal()">
-  <div>
-      <h3>Create test case</h3>
-      <p>Would you like to create a new test case or continue the previous one?</p>
-      <div class="width-full">
-          <div class="btn-group">
-              <button class="" (click)="onCreateClick()">
-                  <span>Create</span> 
-              </button>
-              <button class="btn-danger" (click)="onContinue()"  >
-                  <span>Continue</span> 
-              </button>
-          </div>
-      </div>
-  </div>
-</app-modal>

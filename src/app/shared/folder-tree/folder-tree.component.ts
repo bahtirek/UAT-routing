@@ -1,7 +1,10 @@
 import {
   Component,
+  EventEmitter,
+  Input,
   OnDestroy,
-  OnInit
+  OnInit,
+  Output
 } from '@angular/core';
 import { Subject, Subscription, takeUntil } from 'rxjs';
 import {
@@ -26,10 +29,13 @@ export class FolderTreeComponent implements OnInit, OnDestroy {
     },
   ]
 
-  showFolders: boolean = false;
+  //showFolders: boolean = false;
   folder: Folder;
   folderToSave: Folder;
   folderSubscription: Subscription;
+
+  @Input() showFolders: boolean = false;
+  @Output() folderSaved = new EventEmitter<Folder>();
 
   constructor(private folderService: FolderTreeService) {}
 
@@ -50,7 +56,8 @@ export class FolderTreeComponent implements OnInit, OnDestroy {
   }
 
   onSaveFolder(){
-    this.folder = this.folderToSave
+    this.folder = this.folderToSave;
+    this.folderSaved.emit(this.folder);
     this.showFolders = false;
   }
 
