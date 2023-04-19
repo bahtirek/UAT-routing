@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   isLoggedIn(){
-    return true;
+    return false;
     /* const token = localStorage.getItem('triage_user_token');
     if (!this.jwtHelper.isTokenExpired(token)) return true; */
   }

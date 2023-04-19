@@ -9,27 +9,32 @@ import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   { 
-    path: '',
+    path: '', 
     component: AuthComponent,
     children: [
       {
         path: '',
-        redirectTo: '/login',
-        pathMatch: 'full'
-      },
-      {
-        path: 'login',
-        component: LoginComponent
-      },
-      {
-        path: 'forgot-password',
-        component: ForgotPasswordComponent
-      },
-      {
-        path: 'registration',
-        component: RegistrationComponent
-      },
-    ]
+        children: [
+          {
+            path: '',
+            redirectTo: 'login',
+            pathMatch: 'full'
+          },
+          {
+            path: 'login',
+            component: LoginComponent
+          },
+          {
+            path: 'forgot-password',
+            component: ForgotPasswordComponent
+          },
+          {
+            path: 'registration',
+            component: RegistrationComponent
+          },
+        ]
+      }
+    ] 
   }
 ];
 

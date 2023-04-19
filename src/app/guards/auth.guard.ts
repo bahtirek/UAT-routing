@@ -13,23 +13,14 @@ import { AuthService }      from '../auth/auth.service';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate, CanActivateChild, CanLoad {
+export class AuthGuard implements CanActivateChild {
+
   constructor(private authService: AuthService, private router: Router) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    let url: string = state.url;
-    console.log('act');
-    
-    return this.checkLogin(url);
-  }
-
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    return this.canActivate(route, state);
-  }
-
-  canLoad(route: Route): boolean {
-    let url = `/${route.path}`;
-
+    let url: string = state.url;
+    console.log(url);
+    
     return this.checkLogin(url);
   }
 
