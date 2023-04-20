@@ -10,6 +10,7 @@ import { CreateTestCaseModule } from './create-test-case/create-test-case.module
 import { SearchTestCaseModule } from 'src/app/shared/search-test-case/search-test-case.module';
 import { ModalModule } from 'src/app/shared/modal/modal.module';
 import { ReviewStepsModule } from 'src/app/shared/review-steps/review-steps.module';
+import { FolderTreeModule } from 'src/app/shared/folder-tree/folder-tree.module';
 
 const routes: Routes = [
   { 
@@ -45,6 +46,7 @@ const routes: Routes = [
     SearchTestCaseModule,
     ModalModule,
     ReviewStepsModule,
+    FolderTreeModule,
     RouterModule.forChild(routes),
   ]
 })

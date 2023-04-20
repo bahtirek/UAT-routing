@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { take } from 'rxjs';
+import { Folder } from 'src/app/interfaces/folder.interface';
 import { TestCase } from 'src/app/interfaces/test-case.interface';
 import { TestCaseService } from 'src/app/services/test-case.service';
 
@@ -11,47 +12,46 @@ import { TestCaseService } from 'src/app/services/test-case.service';
 })
 export class CreateTestCaseComponent implements OnInit {
 
-  testCase: TestCase = {
-    /* "testCaseId": 9,
-    "title": "dfgdfg",
-    "createdBy": null,
-    "deleted": false, */
-};
+  testCase: TestCase = {};
   scrollTop: any;
   caseChoiceModalOn: boolean = false;
   submitInProgress: boolean = false;
   onCreate: boolean = false;
+  showFolders: boolean = false;
+  folder: Folder;
 
   constructor(private testCaseService: TestCaseService, private router: Router) { }
 
   ngOnInit(): void {
-    if(!this.testCaseService.testCaseDetails?.testCaseId){
-      this.onCreate = true;
-    } else {
-      this.testCase = this.testCaseService.getTestCase();
-    }
+    this.editOrNew();
     this.testCaseService.testCaseSource.pipe(take(2)).subscribe((testCase: TestCase) => {
       this.testCase = testCase;
     })
   }
 
-  onCreateClick(){
-    //this.toggleModal();
-    this.onCreate = true;
+  editOrNew(){
+    if(!this.testCaseService.testCaseDetails?.testCaseId){
+      this.showFolders = true;
+    } else {
+      this.testCase = this.testCaseService.getTestCase();
+    }
   }
 
-  onContinue(){
-    this.submitInProgress = true;
-    this.testCaseService.getTestCaseById(3).subscribe(
-      response => {
-        this.testCaseService.setTestCase(response)
-        this.toggleModal();
-        this.submitInProgress = false;
-      },
-      error => {
-        this.submitInProgress = false;
-      }
-    )
+  folderSaved(folder: Folder){
+    this.folder = folder;
+    if(!this.testCase?.testCaseId) this.onCreate = true;
+  }
+
+  editOrNew2(){
+    if(!this.testCaseService.testCaseDetails?.testCaseId){
+      this.onCreate = true;
+    } else {
+      this.testCase = this.testCaseService.getTestCase();
+    }
+  }
+
+  onCreateClick(){
+    this.onCreate = true;
   }
 
   closeModal(){

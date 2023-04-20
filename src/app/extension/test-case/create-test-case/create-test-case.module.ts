@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { ModalModule } from 'src/app/shared/modal/modal.module';
 import { ReviewStepsModule } from 'src/app/shared/review-steps/review-steps.module';
 import { MoreButtonMenuModule } from 'src/app/shared/more-button-menu/more-button-menu.module';
+import { FolderTreeModule } from 'src/app/shared/folder-tree/folder-tree.module';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { MoreButtonMenuModule } from 'src/app/shared/more-button-menu/more-butto
     RouterModule,
     ModalModule,
     ReviewStepsModule,
-    MoreButtonMenuModule
+    MoreButtonMenuModule,
+    FolderTreeModule
   ],
   exports: [
     CreateTestCaseComponent,

@@ -10,54 +10,53 @@ import { ExecuteComponent } from './execute/execute.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToasterModule } from '../shared/toaster/toaster.module';
 import { LoaderModule } from '../shared/loader/loader.module';
+import { TestCaseModule } from './test-case/test-case.module';
+import { EventsModule } from './events/events.module';
+import { RegressionModule } from './regression/regression.module';
+import { SettingsModule } from './settings/settings.module';
+import { ExecuteModule } from './execute/execute.module';
+import { AuthGuard } from '../guards/auth.guard';
 
 
 const routes: Routes = [
   { 
-    path: '', component: ExtensionComponent,
+    path: '', 
+    canActivateChild: [AuthGuard],
+    component: ExtensionComponent,
     children: [
-      
       {
-        path: 'test-case', 
-        loadChildren: () => import('./test-case/test-case.module').then(m => m.TestCaseModule),
-        data: {
-          breadcrumb: 'Test Case'
-        }
-      },
-      {
-        path: 'events', 
-        loadChildren: () => import('./events/events.module').then(m => m.EventsModule),
-        data: {
-          breadcrumb: 'Events'
-        }
-      },
-      {
-        path: 'regression', 
-        loadChildren: () => import('./regression/regression.module').then(m => m.RegressionModule) ,
-        data: {
-          breadcrumb: 'Regression'
-        }
-      },
-      {
-        path: 'settings', 
-        loadChildren: () => import('./settings/settings.module').then(m => m.SettingsModule),
-        data: {
-          breadcrumb: 'Settings'
-        }
-      },
-      {
-        path: 'execute', 
-        loadChildren: () => import('./execute/execute.module').then(m => m.ExecuteModule),
-        data: {
-          breadcrumb: 'Execute'
-        }
-      },
-      {
-        path: 'dashboard', component: DashboardComponent,
-        data: {
-          breadcrumb: 'Dashboard'
-        }
-      },
+        path: '',
+        children: [
+          {
+            path: '',
+            redirectTo: 'dashboard',
+            pathMatch: 'full'
+          },
+          {
+            path: 'test-case', 
+            loadChildren: () => TestCaseModule,
+          },
+          {
+            path: 'events', 
+            loadChildren: () => EventsModule
+          },
+          {
+            path: 'regression', 
+            loadChildren: () => RegressionModule
+          },
+          {
+            path: 'settings', 
+            loadChildren: () => SettingsModule
+          },
+          {
+            path: 'execute', 
+            loadChildren: () => ExecuteModule
+          },
+          {
+            path: 'dashboard', component: DashboardComponent,
+          },
+        ]
+      }
     ] 
   }
 ];
@@ -76,7 +75,7 @@ const routes: Routes = [
     MenuModule,
     ToasterModule,
     LoaderModule,
-    RouterModule.forChild(routes),
+    RouterModule.forChild(routes)
   ],
   exports: [
     ExtensionComponent
