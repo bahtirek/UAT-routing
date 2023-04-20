@@ -31,7 +31,7 @@ export class AuthGuard implements CanActivateChild {
     this.authService.redirectUrl = url;
     console.log(url);
     
-    this.router.navigate(['/auth']);
+    this.router.navigate(['/auth'], { skipLocationChange: true });
     return false;
   }
 }
