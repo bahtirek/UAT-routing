@@ -6,14 +6,20 @@
     <div class="width-full">
       <form [formGroup]="loginForm" novalidate #form autocomplete="off">
         <div class="form-container">
-          <label for="email">Email:</label>
-          <input type="email" id="email" formControlName="email">
-          <div *ngIf="email.invalid && (email.dirty || email.touched)" class="form-error-message">
-            <div *ngIf="email.errors?.['required']">
-              Email is required.
+          <label for="firstname">First name:</label>
+          <input type="text" id="firstname" formControlName="firstname">
+          <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="form-error-message">
+            <div *ngIf="firstname.errors?.['required']">
+              First name is required.
             </div>
-            <div *ngIf="email.errors?.['pattern']">
-              Wrong email format
+          </div>
+        </div>
+        <div class="form-container">
+          <label for="lastname">Last name:</label>
+          <input type="text" id="lastname" formControlName="lastname">
+          <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="form-error-message">
+            <div *ngIf="lastname.errors?.['required']">
+              Email is required.
             </div>
           </div>
         </div>
