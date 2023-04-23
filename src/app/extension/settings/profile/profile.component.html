@@ -18,7 +18,7 @@
   <app-edit-email (cancelUpdate)="emailModal = false" [emailToEdit]="email" (emailEmit)="saveEmail($event)"></app-edit-email>
 </app-modal>
 <app-modal *ngIf="nameModal" (closeModal)="nameModal = false">
-  <app-edit-name (cancelUpdate)="nameModal = false" [name]="name" (nameEmit)="saveName($event)"></app-edit-name>
+  <app-edit-name (cancelUpdate)="nameModal = false" [nameToEdit]="name" (nameEmit)="saveName($event)"></app-edit-name>
 </app-modal>
 <app-modal *ngIf="passwordModal" (closeModal)="passwordModal = false">
   <app-edit-password (cancelUpdate)="passwordModal = false" (passwordEmit)="savePassword($event)"></app-edit-password>
