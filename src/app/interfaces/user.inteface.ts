@@ -2,7 +2,8 @@ export interface User {
     firstname?: string,
     lastname?: string,
     email?: string,
-    userId?: number
+    userId?: number,
+    userRole?: string
 }
 
 export interface ServerResponse <T> {
