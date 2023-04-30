@@ -10,6 +10,8 @@ import { EditEmailComponent } from './profile/edit-email/edit-email.component';
 import { EditPasswordComponent } from './profile/edit-password/edit-password.component';
 import { ModalModule } from 'src/app/shared/modal/modal.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchUserModule } from 'src/app/shared/search-user/search-user.module';
+import { CreateUserComponent } from './users/create-user/create-user.component';
 
 const routes: Routes = [
   { 
@@ -31,13 +33,15 @@ const routes: Routes = [
     UsersComponent,
     EditNameComponent,
     EditEmailComponent,
-    EditPasswordComponent
+    EditPasswordComponent,
+    CreateUserComponent
   ],
   imports: [
     CommonModule,
     MoreButtonMenuModule,
     ModalModule,
     ReactiveFormsModule,
+    SearchUserModule,
     RouterModule.forChild(routes),
   ]
 })
