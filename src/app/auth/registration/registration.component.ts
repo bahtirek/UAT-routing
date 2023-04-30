@@ -8,6 +8,12 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class RegistrationComponent implements OnInit {
 
+  get firstname() {
+    return this.loginForm.get('firstname');
+  }
+  get lastname() {
+    return this.loginForm.get('lastname');
+  }
   get email() {
     return this.loginForm.get('email');
   }
@@ -21,6 +27,8 @@ export class RegistrationComponent implements OnInit {
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.pattern(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) ]],
     password: ['', [Validators.required, Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)]],
+    firstname: ['', [Validators.required]],
+    lastname: ['', [Validators.required]],
     confirmPassword: ['', [Validators.required]]
   }, {
     validator: this.passwordMatchValidator

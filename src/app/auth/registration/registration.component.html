@@ -6,6 +6,26 @@
     <div class="width-full">
       <form [formGroup]="loginForm" novalidate #form autocomplete="off">
         <div class="form-container">
+          <label for="firstname">First name:</label>
+          <input type="text" id="firstname" formControlName="firstname">
+          <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="form-error-message">
+            <div *ngIf="firstname.errors?.['required']">
+              First name is required.
+            </div>
+          </div>
+        </div>
+        <div class="spacer-2"></div>
+        <div class="form-container">
+          <label for="lastname">Last name:</label>
+          <input type="text" id="lastname" formControlName="lastname">
+          <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="form-error-message">
+            <div *ngIf="lastname.errors?.['required']">
+              Email is required.
+            </div>
+          </div>
+        </div>
+        <div class="spacer-2"></div>
+        <div class="form-container">
           <label for="email">Email:</label>
           <input type="email" id="email" formControlName="email">
           <div *ngIf="email.invalid && (email.dirty || email.touched)" class="form-error-message">
@@ -26,7 +46,8 @@
               Password is required.
             </div>
             <div *ngIf="password.errors?.['pattern']">
-              Password should be minimum eight characters long, contain at least one uppercase letter, one number and one special character.
+              Password should be minimum eight characters long, contain at least one uppercase letter, one number and
+              one special character.
             </div>
           </div>
         </div>
@@ -34,7 +55,8 @@
         <div class="form-container">
           <label for="confirmPassword">Confirm password:</label>
           <input type="password" id="confirmPassword" formControlName="confirmPassword">
-          <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)" class="form-error-message">
+          <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty || confirmPassword.touched)"
+            class="form-error-message">
             <div *ngIf="confirmPassword.errors?.['required']">
               Confirm password required.
             </div>
@@ -55,4 +77,3 @@
     <a [routerLink]="['../login']" [skipLocationChange]="true">Login</a>
   </div>
 </div>
-

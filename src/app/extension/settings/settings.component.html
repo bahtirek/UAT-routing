@@ -1,13 +1,9 @@
+
 <div class="main-section container">
   <div class="header">
-    <h2>Settings</h2>
-    <div class="link-group">
-      <a [routerLink]="['profile']" [skipLocationChange]="true" routerLinkActive="active" ariaCurrentWhenActive="page">Profile</a>
-      <a [routerLink]="['users']" [skipLocationChange]="true" routerLinkActive="active" ariaCurrentWhenActive="page">Users</a>
-    </div>
+    <h2>{{pageTitle | titlecase}}</h2>
   </div>
   <div class="content">
-    
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </div>
 </div>
