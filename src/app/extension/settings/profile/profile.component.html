@@ -3,22 +3,25 @@
     <div class="flex justify-between">
       <div class="width-full flex items-center">
         <div class="width-half">
-          <span>Firstname Lastname</span>
+          <span>{{user.firstname}} {{user.lastname}}</span>
         </div>
         <div class="width-half">
-          <span>email@email.com </span>
+          <span>{{user.email}} </span>
         </div>
       </div>
       <app-more-button-menu [actions]="actions" (onAction)="onAction($event)"></app-more-button-menu>
     </div>
   </div>
 </div>
+<div class="flex justify-end" *ngIf="user.userRole == '1'">
+  <a [routerLink]="['../users']" [skipLocationChange]="true" routerLinkActive="active">Manage users</a>
+</div>
 
 <app-modal *ngIf="emailModal" (closeModal)="emailModal = false">
-  <app-edit-email (cancelUpdate)="emailModal = false" [emailToEdit]="email" (emailEmit)="saveEmail($event)"></app-edit-email>
+  <app-edit-email (cancelUpdate)="emailModal = false" [emailToEdit]="user.email" (emailEmit)="saveEmail($event)"></app-edit-email>
 </app-modal>
 <app-modal *ngIf="nameModal" (closeModal)="nameModal = false">
-  <app-edit-name (cancelUpdate)="nameModal = false" [nameToEdit]="name" (nameEmit)="saveName($event)"></app-edit-name>
+  <app-edit-name (cancelUpdate)="nameModal = false" [nameToEdit]="user" (nameEmit)="saveName($event)"></app-edit-name>
 </app-modal>
 <app-modal *ngIf="passwordModal" (closeModal)="passwordModal = false">
   <app-edit-password (cancelUpdate)="passwordModal = false" (passwordEmit)="savePassword($event)"></app-edit-password>

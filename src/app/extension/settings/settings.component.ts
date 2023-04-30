@@ -12,7 +12,7 @@ export class SettingsComponent implements OnInit {
   .pipe(
     filter(event => event instanceof NavigationStart),
     map(event => event as NavigationStart),  // appease typescript
-    filter(event => event.url.includes('/test-case') )
+    filter(event => event.url.includes('/settings') )
   )
   .subscribe(
     event => this.setBreadcrumb(event)
@@ -32,6 +32,7 @@ export class SettingsComponent implements OnInit {
 
   setBreadcrumb(event: NavigationStart): void {
     let url = event.url.replace('-', ' ').substring(1).split('/');
+    
     if(url.length > 1) {
       this.pageTitle = `${url[0]} / ${url[url.length-1]}`
     } else {

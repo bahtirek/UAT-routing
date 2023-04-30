@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoreButtonAction } from 'src/app/interfaces/more-button-action.interface';
 import { Name } from 'src/app/interfaces/name.inteface';
+import { User } from 'src/app/interfaces/user.inteface';
 
 @Component({
   selector: 'app-profile',
@@ -8,6 +9,13 @@ import { Name } from 'src/app/interfaces/name.inteface';
   styleUrls: ['./profile.component.less']
 })
 export class ProfileComponent implements OnInit {
+
+  user: User = {
+    firstname: 'John',
+    lastname: 'Doe',
+    email: 'email@email.com',
+    userRole: '1'
+  }
 
   actions: MoreButtonAction[] = [
     {
@@ -29,11 +37,6 @@ export class ProfileComponent implements OnInit {
   nameModal: boolean;
   emailModal: boolean;
   passwordModal: boolean;
-
-  name: string = '';
-  email: string = '';
-  password: string = '';
-
 
   constructor() { }
 

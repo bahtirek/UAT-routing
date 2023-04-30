@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Name } from 'src/app/interfaces/name.inteface';
+import { User } from 'src/app/interfaces/user.inteface';
 
 @Component({
   selector: 'app-edit-name',
@@ -10,7 +11,7 @@ import { Name } from 'src/app/interfaces/name.inteface';
 export class EditNameComponent implements OnInit {
 
 
-  @Input() nameToEdit: String;
+  @Input() nameToEdit: User;
   @Output() nameEmit = new EventEmitter<Name>();
   @Output() cancelUpdate = new EventEmitter<void>();
 
