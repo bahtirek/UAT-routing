@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -20,18 +22,26 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required]]
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log('form submitted');
+      const credentials = {email: this.email.value, password: this.password.value}
+      this.auth.login(credentials).subscribe({
+        next: (response) => {
+          this.auth.setToken(response.access_token)
+          this.router.navigate(['/dashboard'], { skipLocationChange: true });
+        },
+        error: (error: any) => {
+          console.log(error);
+        }
+      })
     } else {
       this.validateAllFormFields(this.loginForm);
     }
-    console.log(this.loginForm.value);
   }
 
   validateAllFormFields(formGroup: FormGroup) {

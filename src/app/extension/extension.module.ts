@@ -19,8 +19,8 @@ import { AuthGuard } from '../guards/auth.guard';
 
 
 const routes: Routes = [
-  { 
-    path: '', 
+  {
+    path: '',
     canActivateChild: [AuthGuard],
     component: ExtensionComponent,
     children: [
@@ -28,28 +28,23 @@ const routes: Routes = [
         path: '',
         children: [
           {
-            path: '',
-            redirectTo: 'dashboard',
-            pathMatch: 'full'
-          },
-          {
-            path: 'test-case', 
+            path: 'test-case',
             loadChildren: () => TestCaseModule,
           },
           {
-            path: 'events', 
+            path: 'events',
             loadChildren: () => EventsModule
           },
           {
-            path: 'regression', 
+            path: 'regression',
             loadChildren: () => RegressionModule
           },
           {
-            path: 'settings', 
+            path: 'settings',
             loadChildren: () => SettingsModule
           },
           {
-            path: 'execute', 
+            path: 'execute',
             loadChildren: () => ExecuteModule
           },
           {
@@ -57,7 +52,7 @@ const routes: Routes = [
           },
         ]
       }
-    ] 
+    ]
   }
 ];
 
@@ -80,6 +75,6 @@ const routes: Routes = [
   exports: [
     ExtensionComponent
   ]
-  
+
 })
 export class ExtensionModule { }
