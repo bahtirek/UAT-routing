@@ -16,6 +16,7 @@ import { RegressionModule } from './regression/regression.module';
 import { SettingsModule } from './settings/settings.module';
 import { ExecuteModule } from './execute/execute.module';
 import { AuthGuard } from '../guards/auth.guard';
+import { DirectoriesModule } from '../shared/directories/directories.module';
 
 
 const routes: Routes = [
@@ -70,6 +71,7 @@ const routes: Routes = [
     MenuModule,
     ToasterModule,
     LoaderModule,
+    DirectoriesModule,
     RouterModule.forChild(routes)
   ],
   exports: [
