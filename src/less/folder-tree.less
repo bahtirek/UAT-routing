@@ -2,7 +2,7 @@
   padding-left: 20px;
   .folder-name {
     display: flex;
-    align-items: center;  
+    align-items: center;
     margin-block: 4px;
 
     .folder-svg  {
@@ -29,6 +29,22 @@
     &.active {
       color: #17b546;
       font-weight: bold;
+    }
+
+    .folder-settings {
+      display: flex;
+      align-items: center;
+      margin-block: 4px;
+      &:hover {
+        app-more-button-menu {
+          visibility: visible;
+        }
+      }
+
+      app-more-button-menu {
+        visibility: hidden;
+        margin-left: 10px;
+      }
     }
   }
 

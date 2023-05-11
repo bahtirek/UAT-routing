@@ -1,16 +1,19 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { api } from '../data/api-url';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
+  url = api.url;
   token: string = "token";
   jwtHelper = new JwtHelperService();
   redirectUrl: string;
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getToken() {
     //console.log('gettoken');
@@ -22,9 +25,27 @@ export class AuthService {
   }
 
   isLoggedIn(){
-    return true;
-    /* const token = localStorage.getItem('triage_user_token');
-    if (!this.jwtHelper.isTokenExpired(token)) return true; */
+    if(this.token) {
+      if (!this.jwtHelper.isTokenExpired(this.token)) return true;
+    } else {
+      return false
+    }
+  }
+
+  login(credentials: any){
+    return this.http.post<any>(this.url + '/auth/login', credentials)
+  }
+
+
+  setToken(token: string){
+    localStorage.setItem('jwtToken', token);
+    this.token = token
+  }
+
+  getTokenFromLocal(){
+    this.token = localStorage.getItem('jwtToken');
+    console.log(this.token);
+
   }
 
   logout(): void {
@@ -35,8 +56,8 @@ export class AuthService {
     this.http.post(this.domain + 'auth/logout?token=' + token, {}).subscribe(
       result=>{},
       error => {
-        //console.log(error);             
-      } 
+        //console.log(error);
+      }
     )
     this.router.navigate(['login']); */
   }

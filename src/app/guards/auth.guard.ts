@@ -19,8 +19,7 @@ export class AuthGuard implements CanActivateChild {
 
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     let url: string = state.url;
-    console.log(url);
-    
+
     return this.checkLogin(url);
   }
 
@@ -30,7 +29,7 @@ export class AuthGuard implements CanActivateChild {
     // Store the attempted URL for redirecting
     this.authService.redirectUrl = url;
     console.log(url);
-    
+
     this.router.navigate(['/auth'], { skipLocationChange: true });
     return false;
   }
